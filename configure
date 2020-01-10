@@ -809,6 +809,7 @@ infodir
 docdir
 oldincludedir
 includedir
+runstatedir
 localstatedir
 sharedstatedir
 sysconfdir
@@ -912,6 +913,7 @@ datadir='${datarootdir}'
 sysconfdir='${prefix}/etc'
 sharedstatedir='${prefix}/com'
 localstatedir='${prefix}/var'
+runstatedir='${localstatedir}/run'
 includedir='${prefix}/include'
 oldincludedir='/usr/include'
 docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
@@ -1164,6 +1166,15 @@ do
   | -silent | --silent | --silen | --sile | --sil)
     silent=yes ;;
 
+  -runstatedir | --runstatedir | --runstatedi | --runstated \
+  | --runstate | --runstat | --runsta | --runst | --runs \
+  | --run | --ru | --r)
+    ac_prev=runstatedir ;;
+  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
+  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
+  | --run=* | --ru=* | --r=*)
+    runstatedir=$ac_optarg ;;
+
   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
     ac_prev=sbindir ;;
   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
@@ -1301,7 +1312,7 @@ fi
 for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
 		datadir sysconfdir sharedstatedir localstatedir includedir \
 		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
-		libdir localedir mandir
+		libdir localedir mandir runstatedir
 do
   eval ac_val=\$$ac_var
   # Remove trailing slashes.
@@ -1454,6 +1465,7 @@ Fine tuning of the installation directories:
   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
   --libdir=DIR            object code libraries [EPREFIX/lib]
   --includedir=DIR        C header files [PREFIX/include]
   --oldincludedir=DIR     C header files for non-gcc [/usr/include]
@@ -13280,7 +13292,7 @@ linux* | k*bsd*-gnu | kopensolaris*-gnu | gnu*)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
-netbsd*)
+netbsd* | netbsdelf*-gnu)
   if echo __ELF__ | $CC -E - | $GREP __ELF__ > /dev/null; then
     lt_cv_deplibs_check_method='match_pattern /lib[^/]+(\.so\.[0-9]+\.[0-9]+|_pic\.a)$'
   else
@@ -16836,6 +16848,9 @@ $as_echo_n "checking whether the $compiler linker ($LD) supports shared librarie
   openbsd* | bitrig*)
     with_gnu_ld=no
     ;;
+  linux* | k*bsd*-gnu | gnu*)
+    link_all_deplibs=no
+    ;;
   esac
 
   ld_shlibs=yes
@@ -17090,7 +17105,7 @@ _LT_EOF
       fi
       ;;
 
-    netbsd*)
+    netbsd* | netbsdelf*-gnu)
       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
 	archive_cmds='$LD -Bshareable $libobjs $deplibs $linker_flags -o $lib'
 	wlarc=
@@ -17760,6 +17775,7 @@ $as_echo "$lt_cv_irix_exported_symbol" >&6; }
 	if test yes = "$lt_cv_irix_exported_symbol"; then
           archive_expsym_cmds='$CC -shared $pic_flag $libobjs $deplibs $compiler_flags $wl-soname $wl$soname `test -n "$verstring" && func_echo_all "$wl-set_version $wl$verstring"` $wl-update_registry $wl$output_objdir/so_locations $wl-exports_file $wl$export_symbols -o $lib'
 	fi
+	link_all_deplibs=no
       else
 	archive_cmds='$CC -shared $libobjs $deplibs $compiler_flags -soname $soname `test -n "$verstring" && func_echo_all "-set_version $verstring"` -update_registry $output_objdir/so_locations -o $lib'
 	archive_expsym_cmds='$CC -shared $libobjs $deplibs $compiler_flags -soname $soname `test -n "$verstring" && func_echo_all "-set_version $verstring"` -update_registry $output_objdir/so_locations -exports_file $export_symbols -o $lib'
@@ -17781,7 +17797,7 @@ $as_echo "$lt_cv_irix_exported_symbol" >&6; }
       esac
       ;;
 
-    netbsd*)
+    netbsd* | netbsdelf*-gnu)
       if echo __ELF__ | $CC -E - | $GREP __ELF__ >/dev/null; then
 	archive_cmds='$LD -Bshareable -o $lib $libobjs $deplibs $linker_flags'  # a.out
       else
@@ -18894,6 +18910,18 @@ fi
   # people can always --disable-shared, the test was removed, and we
   # assume the GNU/Linux dynamic linker is in use.
   dynamic_linker='GNU/Linux ld.so'
+  ;;
+
+netbsdelf*-gnu)
+  version_type=linux
+  need_lib_prefix=no
+  need_version=no
+  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major ${libname}${shared_ext}'
+  soname_spec='${libname}${release}${shared_ext}$major'
+  shlibpath_var=LD_LIBRARY_PATH
+  shlibpath_overrides_runpath=no
+  hardcode_into_libs=yes
+  dynamic_linker='NetBSD ld.elf_so'
   ;;
 
 netbsd*)
@@ -21790,7 +21818,7 @@ lt_prog_compiler_static_CXX=
 	    ;;
 	esac
 	;;
-      netbsd*)
+      netbsd* | netbsdelf*-gnu)
 	;;
       *qnx* | *nto*)
         # QNX uses GNU C++, but need to define -shared option too, otherwise
@@ -22164,6 +22192,9 @@ $as_echo_n "checking whether the $compiler linker ($LD) supports shared librarie
       exclude_expsyms_CXX='[_]+GLOBAL_OFFSET_TABLE_|[_]+GLOBAL__[FID]_.*|[_]+head_[A-Za-z0-9_]+_dll|[A-Za-z0-9_]+_dll_iname'
       ;;
     esac
+    ;;
+  linux* | k*bsd*-gnu | gnu*)
+    link_all_deplibs_CXX=no
     ;;
   *)
     export_symbols_cmds_CXX='$NM $libobjs $convenience | $global_symbol_pipe | $SED '\''s/.* //'\'' | sort | uniq > $export_symbols'
@@ -22856,6 +22887,18 @@ fi
   # people can always --disable-shared, the test was removed, and we
   # assume the GNU/Linux dynamic linker is in use.
   dynamic_linker='GNU/Linux ld.so'
+  ;;
+
+netbsdelf*-gnu)
+  version_type=linux
+  need_lib_prefix=no
+  need_version=no
+  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major ${libname}${shared_ext}'
+  soname_spec='${libname}${release}${shared_ext}$major'
+  shlibpath_var=LD_LIBRARY_PATH
+  shlibpath_overrides_runpath=no
+  hardcode_into_libs=yes
+  dynamic_linker='NetBSD ld.elf_so'
   ;;
 
 netbsd*)
@@ -28181,7 +28224,7 @@ echo "define(\`__CONFIG_M4_INCLUDED__')" >> $gmp_configm4
 # FIXME: Upcoming version of autoconf/automake may not like broken lines.
 #        Right now automake isn't accepting the new AC_CONFIG_FILES scheme.
 
-ac_config_files="$ac_config_files Makefile mpf/Makefile mpn/Makefile mpq/Makefile mpz/Makefile printf/Makefile scanf/Makefile rand/Makefile cxx/Makefile tests/Makefile tests/devel/Makefile tests/mpf/Makefile tests/mpn/Makefile tests/mpq/Makefile tests/mpz/Makefile tests/rand/Makefile tests/misc/Makefile tests/cxx/Makefile doc/Makefile tune/Makefile demos/Makefile demos/calc/Makefile demos/expr/Makefile gmp.h:gmp-h.in"
+ac_config_files="$ac_config_files Makefile mpf/Makefile mpn/Makefile mpq/Makefile mpz/Makefile scanf/Makefile rand/Makefile cxx/Makefile tests/Makefile tests/devel/Makefile tests/mpf/Makefile tests/mpn/Makefile tests/mpq/Makefile tests/mpz/Makefile tests/rand/Makefile tests/misc/Makefile tests/cxx/Makefile doc/Makefile tune/Makefile demos/Makefile demos/calc/Makefile demos/expr/Makefile gmp.h:gmp-h.in"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -29312,7 +29355,6 @@ do
     "mpn/Makefile") CONFIG_FILES="$CONFIG_FILES mpn/Makefile" ;;
     "mpq/Makefile") CONFIG_FILES="$CONFIG_FILES mpq/Makefile" ;;
     "mpz/Makefile") CONFIG_FILES="$CONFIG_FILES mpz/Makefile" ;;
-    "printf/Makefile") CONFIG_FILES="$CONFIG_FILES printf/Makefile" ;;
     "scanf/Makefile") CONFIG_FILES="$CONFIG_FILES scanf/Makefile" ;;
     "rand/Makefile") CONFIG_FILES="$CONFIG_FILES rand/Makefile" ;;
     "cxx/Makefile") CONFIG_FILES="$CONFIG_FILES cxx/Makefile" ;;
@@ -29973,7 +30015,6 @@ $as_echo "$as_me: executing $ac_file commands" >&6;}
     cat <<_LT_EOF >> "$cfgfile"
 #! $SHELL
 # Generated automatically by $as_me ($PACKAGE) $VERSION
-# Libtool was configured on host `(hostname || uname -n) 2>/dev/null | sed 1q`:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 
 # Provide generalized library-building support services.
