@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz mpq mpf rand cxx demos tune
+SUBDIRS = mpn mpz mpq mpf rand demos tune
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -235,11 +235,6 @@ RANDOM_OBJECTS =							\
   rand/randmts$U.lo rand/rands$U.lo rand/randsd$U.lo rand/randsdui$U.lo	\
   rand/randbui$U.lo rand/randmui$U.lo
 
-# no $U for C++ files
-CXX_OBJECTS =								\
-  cxx/isfuns.lo cxx/ismpf.lo cxx/ismpq.lo cxx/ismpz.lo cxx/ismpznw.lo	\
-  cxx/limits.lo cxx/osdoprnti.lo cxx/osfuns.lo				\
-  cxx/osmpf.lo cxx/osmpq.lo cxx/osmpz.lo
 
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
 # libraries like mpz/libmpz.la.  Or rather it works, but it ends up putting

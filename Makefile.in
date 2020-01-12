@@ -246,6 +246,7 @@ am__v_lt_1 =
 libgmp_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(libgmp_la_LDFLAGS) $(LDFLAGS) -o $@
+am__DEPENDENCIES_2 = libgmp.la
 am_libgmpxx_la_OBJECTS = dummy.lo
 libgmpxx_la_OBJECTS = $(am_libgmpxx_la_OBJECTS)
 libgmpxx_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
@@ -566,7 +567,7 @@ LIBGMP_LT_AGE = 3
 LIBGMPXX_LT_CURRENT = 9
 LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE = 5
-SUBDIRS = mpn mpz mpq mpf rand cxx demos tune
+SUBDIRS = mpn mpz mpq mpf rand demos tune
 
 # The "test -f" support for srcdir!=builddir is similar to the automake .c.o
 # etc rules, but with each foo.c explicitly, since $< is not portable
@@ -706,13 +707,6 @@ RANDOM_OBJECTS = \
   rand/randlc2s$U.lo rand/randlc2x$U.lo rand/randmt$U.lo		\
   rand/randmts$U.lo rand/rands$U.lo rand/randsd$U.lo rand/randsdui$U.lo	\
   rand/randbui$U.lo rand/randmui$U.lo
-
-
-# no $U for C++ files
-CXX_OBJECTS = \
-  cxx/isfuns.lo cxx/ismpf.lo cxx/ismpq.lo cxx/ismpz.lo cxx/ismpznw.lo	\
-  cxx/limits.lo cxx/osdoprnti.lo cxx/osfuns.lo				\
-  cxx/osmpf.lo cxx/osmpq.lo cxx/osmpz.lo
 
 
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
