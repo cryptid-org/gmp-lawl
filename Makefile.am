@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz mpq mpf rand demos tune
+SUBDIRS = mpn mpz mpq mpf rand tune
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3

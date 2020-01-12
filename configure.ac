@@ -3839,7 +3839,7 @@ AC_SUBST(TUNE_SQR_OBJ)
 
 # Configs for demos/pexpr.c.
 #
-AC_CONFIG_FILES(demos/pexpr-config.h:demos/pexpr-config-h.in)
+
 GMP_SUBST_CHECK_FUNCS(clock, cputime, getrusage, gettimeofday, sigaction, sigaltstack, sigstack)
 GMP_SUBST_CHECK_HEADERS(sys/resource.h)
 AC_CHECK_TYPES([stack_t], HAVE_STACK_T_01=1, HAVE_STACK_T_01=0,
@@ -3865,7 +3865,7 @@ AC_SUBST(HAVE_STACK_T_01)
 # also seen readline/history.h missing, not sure if that's just a broken
 # install or a very old version, but check that too.
 #
-AC_CONFIG_FILES(demos/calc/calc-config.h:demos/calc/calc-config-h.in)
+
 LIBCURSES=
 if test $with_readline != no; then
   AC_CHECK_LIB(ncurses, tputs, [LIBCURSES=-lncurses],
@@ -3912,7 +3912,6 @@ AC_OUTPUT(Makefile							\
   mpf/Makefile mpn/Makefile mpq/Makefile				\
   mpz/Makefile rand/Makefile \
   tune/Makefile						\
-  demos/Makefile demos/calc/Makefile demos/expr/Makefile		\
   gmp.h:gmp-h.in)
 
 AC_MSG_NOTICE([summary of build options:
