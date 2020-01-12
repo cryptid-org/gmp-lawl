@@ -28224,7 +28224,7 @@ echo "define(\`__CONFIG_M4_INCLUDED__')" >> $gmp_configm4
 # FIXME: Upcoming version of autoconf/automake may not like broken lines.
 #        Right now automake isn't accepting the new AC_CONFIG_FILES scheme.
 
-ac_config_files="$ac_config_files Makefile mpf/Makefile mpn/Makefile mpq/Makefile mpz/Makefile rand/Makefile cxx/Makefile tests/Makefile tests/devel/Makefile tests/mpf/Makefile tests/mpn/Makefile tests/mpq/Makefile tests/mpz/Makefile tests/rand/Makefile tests/misc/Makefile tests/cxx/Makefile tune/Makefile demos/Makefile demos/calc/Makefile demos/expr/Makefile gmp.h:gmp-h.in"
+ac_config_files="$ac_config_files Makefile mpf/Makefile mpn/Makefile mpq/Makefile mpz/Makefile rand/Makefile cxx/Makefile tune/Makefile demos/Makefile demos/calc/Makefile demos/expr/Makefile gmp.h:gmp-h.in"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -29357,15 +29357,6 @@ do
     "mpz/Makefile") CONFIG_FILES="$CONFIG_FILES mpz/Makefile" ;;
     "rand/Makefile") CONFIG_FILES="$CONFIG_FILES rand/Makefile" ;;
     "cxx/Makefile") CONFIG_FILES="$CONFIG_FILES cxx/Makefile" ;;
-    "tests/Makefile") CONFIG_FILES="$CONFIG_FILES tests/Makefile" ;;
-    "tests/devel/Makefile") CONFIG_FILES="$CONFIG_FILES tests/devel/Makefile" ;;
-    "tests/mpf/Makefile") CONFIG_FILES="$CONFIG_FILES tests/mpf/Makefile" ;;
-    "tests/mpn/Makefile") CONFIG_FILES="$CONFIG_FILES tests/mpn/Makefile" ;;
-    "tests/mpq/Makefile") CONFIG_FILES="$CONFIG_FILES tests/mpq/Makefile" ;;
-    "tests/mpz/Makefile") CONFIG_FILES="$CONFIG_FILES tests/mpz/Makefile" ;;
-    "tests/rand/Makefile") CONFIG_FILES="$CONFIG_FILES tests/rand/Makefile" ;;
-    "tests/misc/Makefile") CONFIG_FILES="$CONFIG_FILES tests/misc/Makefile" ;;
-    "tests/cxx/Makefile") CONFIG_FILES="$CONFIG_FILES tests/cxx/Makefile" ;;
     "tune/Makefile") CONFIG_FILES="$CONFIG_FILES tune/Makefile" ;;
     "demos/Makefile") CONFIG_FILES="$CONFIG_FILES demos/Makefile" ;;
     "demos/calc/Makefile") CONFIG_FILES="$CONFIG_FILES demos/calc/Makefile" ;;
