@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = tests mpn mpz mpq mpf scanf rand cxx demos tune doc
+SUBDIRS = tests mpn mpz mpq mpf rand cxx demos tune doc
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -229,11 +229,6 @@ MPQ_OBJECTS = mpq/abs$U.lo mpq/aors$U.lo				\
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
 
-SCANF_OBJECTS =							\
-  scanf/doscan$U.lo scanf/fscanf$U.lo scanf/fscanffuns$U.lo	\
-  scanf/scanf$U.lo scanf/sscanf$U.lo scanf/sscanffuns$U.lo	\
-  scanf/vfscanf$U.lo scanf/vscanf$U.lo scanf/vsscanf$U.lo
-
 RANDOM_OBJECTS =							\
   rand/rand$U.lo rand/randclr$U.lo rand/randdef$U.lo rand/randiset$U.lo	\
   rand/randlc2s$U.lo rand/randlc2x$U.lo rand/randmt$U.lo		\
@@ -268,7 +263,7 @@ EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
   $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
   $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
-  $(SCANF_OBJECTS) $(RANDOM_OBJECTS)
+  $(RANDOM_OBJECTS)
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)

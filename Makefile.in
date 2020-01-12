@@ -233,7 +233,7 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)" \
 	"$(DESTDIR)$(includeexecdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 = $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS) \
-	$(MPN_OBJECTS) $(SCANF_OBJECTS) $(RANDOM_OBJECTS)
+	$(MPN_OBJECTS) $(RANDOM_OBJECTS)
 am_libgmp_la_OBJECTS = assert.lo compat.lo errno.lo extract-dbl.lo \
 	invalid.lo memory.lo mp_bpl.lo mp_clz_tab.lo mp_dv_tab.lo \
 	mp_minv_tab.lo mp_get_fns.lo mp_set_fns.lo version.lo \
@@ -566,7 +566,7 @@ LIBGMP_LT_AGE = 3
 LIBGMPXX_LT_CURRENT = 9
 LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE = 5
-SUBDIRS = tests mpn mpz mpq mpf scanf rand cxx demos tune doc
+SUBDIRS = tests mpn mpz mpq mpf rand cxx demos tune doc
 
 # The "test -f" support for srcdir!=builddir is similar to the automake .c.o
 # etc rules, but with each foo.c explicitly, since $< is not portable
@@ -701,11 +701,6 @@ MPQ_OBJECTS = mpq/abs$U.lo mpq/aors$U.lo				\
   mpq/set_f$U.lo mpq/swap$U.lo
 
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
-SCANF_OBJECTS = \
-  scanf/doscan$U.lo scanf/fscanf$U.lo scanf/fscanffuns$U.lo	\
-  scanf/scanf$U.lo scanf/sscanf$U.lo scanf/sscanffuns$U.lo	\
-  scanf/vfscanf$U.lo scanf/vscanf$U.lo scanf/vsscanf$U.lo
-
 RANDOM_OBJECTS = \
   rand/rand$U.lo rand/randclr$U.lo rand/randdef$U.lo rand/randiset$U.lo	\
   rand/randlc2s$U.lo rand/randlc2x$U.lo rand/randmt$U.lo		\
@@ -742,7 +737,7 @@ EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
   $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
   $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
-  $(SCANF_OBJECTS) $(RANDOM_OBJECTS)
+  $(RANDOM_OBJECTS)
 
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
