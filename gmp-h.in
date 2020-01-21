@@ -328,11 +328,6 @@ __GMP_DECLSPEC extern const char * const gmp_version;
 #define mpz_realloc __gmpz_realloc
 __GMP_DECLSPEC void *_mpz_realloc (mpz_ptr, mp_size_t);
 
-#define mpz_abs __gmpz_abs
-#if __GMP_INLINE_PROTOTYPES || defined (__GMP_FORCE_mpz_abs)
-__GMP_DECLSPEC void mpz_abs (mpz_ptr, mpz_srcptr);
-#endif
-
 #define mpz_add __gmpz_add
 __GMP_DECLSPEC void mpz_add (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
@@ -826,15 +821,6 @@ __GMP_DECLSPEC mpz_srcptr mpz_roinit_n (mpz_ptr, mp_srcptr, mp_size_t);
    is wanted for the inline than for the library version, then
    __GMP_FORCE_foo arranges the inline to be suppressed, eg. mpz_abs.  */
 
-#if defined (__GMP_EXTERN_INLINE) && ! defined (__GMP_FORCE_mpz_abs)
-__GMP_EXTERN_INLINE void
-mpz_abs (mpz_ptr __gmp_w, mpz_srcptr __gmp_u)
-{
-  if (__gmp_w != __gmp_u)
-    mpz_set (__gmp_w, __gmp_u);
-  __gmp_w->_mp_size = __GMP_ABS (__gmp_w->_mp_size);
-}
-#endif
 
 #if defined (__GMP_EXTERN_INLINE) || defined (__GMP_FORCE_mpz_fits_uint_p)
 #if ! defined (__GMP_FORCE_mpz_fits_uint_p)
