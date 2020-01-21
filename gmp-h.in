@@ -364,15 +364,6 @@ __GMP_DECLSPEC void mpz_fdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
 #define mpz_fdiv_q_ui __gmpz_fdiv_q_ui
 __GMP_DECLSPEC unsigned long int mpz_fdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
-#define mpz_get_d __gmpz_get_d
-__GMP_DECLSPEC double mpz_get_d (mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_get_d_2exp __gmpz_get_d_2exp
-__GMP_DECLSPEC double mpz_get_d_2exp (signed long int *, mpz_srcptr);
-
-#define mpz_get_si __gmpz_get_si
-__GMP_DECLSPEC /* signed */ long int mpz_get_si (mpz_srcptr) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
-
 #define mpz_get_str __gmpz_get_str
 __GMP_DECLSPEC char *mpz_get_str (char *, int, mpz_srcptr);
 
@@ -381,17 +372,11 @@ __GMP_DECLSPEC char *mpz_get_str (char *, int, mpz_srcptr);
 __GMP_DECLSPEC unsigned long int mpz_get_ui (mpz_srcptr) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
 #endif
 
-#define mpz_hamdist __gmpz_hamdist
-__GMP_DECLSPEC mp_bitcnt_t mpz_hamdist (mpz_srcptr, mpz_srcptr) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
-
 #define mpz_import __gmpz_import
 __GMP_DECLSPEC void mpz_import (mpz_ptr, size_t, int, size_t, int, size_t, const void *);
 
 #define mpz_init __gmpz_init
 __GMP_DECLSPEC void mpz_init (mpz_ptr);
-
-#define mpz_init2 __gmpz_init2
-__GMP_DECLSPEC void mpz_init2 (mpz_ptr, mp_bitcnt_t);
 
 #define mpz_inits __gmpz_inits
 __GMP_DECLSPEC void mpz_inits (mpz_ptr, ...);
@@ -399,58 +384,11 @@ __GMP_DECLSPEC void mpz_inits (mpz_ptr, ...);
 #define mpz_init_set __gmpz_init_set
 __GMP_DECLSPEC void mpz_init_set (mpz_ptr, mpz_srcptr);
 
-#define mpz_init_set_d __gmpz_init_set_d
-__GMP_DECLSPEC void mpz_init_set_d (mpz_ptr, double);
-
-#define mpz_init_set_si __gmpz_init_set_si
-__GMP_DECLSPEC void mpz_init_set_si (mpz_ptr, signed long int);
-
-#define mpz_init_set_str __gmpz_init_set_str
-__GMP_DECLSPEC int mpz_init_set_str (mpz_ptr, const char *, int);
-
 #define mpz_init_set_ui __gmpz_init_set_ui
 __GMP_DECLSPEC void mpz_init_set_ui (mpz_ptr, unsigned long int);
 
-#define mpz_inp_raw __gmpz_inp_raw
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_inp_raw (mpz_ptr, FILE *);
-#endif
-
-#define mpz_inp_str __gmpz_inp_str
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_inp_str (mpz_ptr, FILE *, int);
-#endif
-
 #define mpz_invert __gmpz_invert
 __GMP_DECLSPEC int mpz_invert (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_ior __gmpz_ior
-__GMP_DECLSPEC void mpz_ior (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_jacobi __gmpz_jacobi
-__GMP_DECLSPEC int mpz_jacobi (mpz_srcptr, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_kronecker mpz_jacobi  /* alias */
-
-#define mpz_kronecker_si __gmpz_kronecker_si
-__GMP_DECLSPEC int mpz_kronecker_si (mpz_srcptr, long) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_kronecker_ui __gmpz_kronecker_ui
-__GMP_DECLSPEC int mpz_kronecker_ui (mpz_srcptr, unsigned long) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_si_kronecker __gmpz_si_kronecker
-__GMP_DECLSPEC int mpz_si_kronecker (long, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_ui_kronecker __gmpz_ui_kronecker
-__GMP_DECLSPEC int mpz_ui_kronecker (unsigned long, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_lcm __gmpz_lcm
-__GMP_DECLSPEC void mpz_lcm (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_lcm_ui __gmpz_lcm_ui
-__GMP_DECLSPEC void mpz_lcm_ui (mpz_ptr, mpz_srcptr, unsigned long);
-
-#define mpz_legendre mpz_jacobi  /* alias */
 
 #define mpz_lucnum_ui __gmpz_lucnum_ui
 __GMP_DECLSPEC void mpz_lucnum_ui (mpz_ptr, unsigned long int);
