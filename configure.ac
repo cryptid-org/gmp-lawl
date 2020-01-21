@@ -727,146 +727,6 @@ case $host in
 esac
 
 
-if test $found_compiler = yes; then
-
-  # If we're creating CFLAGS, then look for optional additions.  If the user
-  # set CFLAGS then leave it alone.
-  #
-  if test "$test_CFLAGS" != set; then
-                          eval optlist=\"\$${ccbase}${abi1}_cflags_optlist\"
-    test -n "$optlist" || eval optlist=\"\$${ccbase}${abi2}_cflags_optlist\"
-
-    for opt in $optlist; do
-                             eval optflags=\"\$${ccbase}${abi1}_cflags_${opt}\"
-      test -n "$optflags" || eval optflags=\"\$${ccbase}${abi2}_cflags_${opt}\"
-      test -n "$optflags" || eval optflags=\"\$${ccbase}_cflags_${opt}\"
-
-      for flag in $optflags; do
-
-	# ~ represents a space in an option spec
-        flag=`echo "$flag" | tr '~' ' '`
-
-        case $flag in
-          -march=pentium4 | -march=k8)
-            # For -march settings which enable SSE2 we exclude certain bad
-            # gcc versions and we need an OS knowing how to save xmm regs.
-            #
-            # This is only for ABI=32, any 64-bit gcc is good and any OS
-            # knowing x86_64 will know xmm.
-            #
-            # -march=k8 was only introduced in gcc 3.3, so we shouldn't need
-            # the GMP_GCC_PENTIUM4_SSE2 check (for gcc 3.2 and prior).  But
-            # it doesn't hurt to run it anyway, sharing code with the
-            # pentium4 case.
-            #
-            if test "$abi" = 32; then
-              GMP_GCC_PENTIUM4_SSE2($cc $cflags $cppflags,, continue)
-              GMP_OS_X86_XMM($cc $cflags $cppflags,, continue)
-            fi
-            ;;
-          -no-cpp-precomp)
-            # special check, avoiding a warning
-            GMP_GCC_NO_CPP_PRECOMP($ccbase,$cc,$cflags,
-                                   [cflags="$cflags $flag"
-                                   break],
-                                   [continue])
-            ;;
-          -Wa,-m*)
-            case $host in
-              alpha*-*-*)
-                GMP_GCC_WA_MCPU($cc $cflags, $flag, , [continue])
-              ;;
-            esac
-            ;;
-          -Wa,-oldas)
-            GMP_GCC_WA_OLDAS($cc $cflags $cppflags,
-                             [cflags="$cflags $flag"
-                             break],
-                             [continue])
-            ;;
-        esac
-
-        GMP_PROG_CC_WORKS($cc $cflags $cppflags $flag,
-          [cflags="$cflags $flag"
-          break])
-      done
-    done
-  fi
-
-  ABI="$abi"
-  CC="$cc"
-  CFLAGS="$cflags"
-  CPPFLAGS="$cppflags"
-  eval GMP_NONSTD_ABI=\"\$GMP_NONSTD_ABI_$ABI\"
-
-  # Could easily have this in config.h too, if desired.
-  ABI_nodots=`echo $ABI | sed 's/\./_/'`
-  GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_ABI_$ABI_nodots')", POST)
-
-
-  # GMP_LDFLAGS substitution, selected according to ABI.
-  # These are needed on libgmp.la and libmp.la, but currently not on
-  # convenience libraries like tune/libspeed.la or mpz/libmpz.la.
-  #
-                            eval GMP_LDFLAGS=\"\$${ccbase}${abi1}_ldflags\"
-  test -n "$GMP_LDFLAGS" || eval GMP_LDFLAGS=\"\$${ccbase}${abi1}_ldflags\"
-  AC_SUBST(GMP_LDFLAGS)
-  AC_SUBST(LIBGMP_LDFLAGS)
-  AC_SUBST(LIBGMPXX_LDFLAGS)
-
-  # extra_functions, selected according to ABI
-                    eval tmp=\"\$extra_functions$abi1\"
-  test -n "$tmp" || eval tmp=\"\$extra_functions$abi2\"
-  extra_functions="$tmp"
-
-
-  # Cycle counter, selected according to ABI.
-  #
-                    eval tmp=\"\$SPEED_CYCLECOUNTER_OBJ$abi1\"
-  test -n "$tmp" || eval tmp=\"\$SPEED_CYCLECOUNTER_OBJ$abi2\"
-  SPEED_CYCLECOUNTER_OBJ="$tmp"
-                    eval tmp=\"\$cyclecounter_size$abi1\"
-  test -n "$tmp" || eval tmp=\"\$cyclecounter_size$abi2\"
-  cyclecounter_size="$tmp"
-
-  if test -n "$SPEED_CYCLECOUNTER_OBJ"; then
-    AC_DEFINE_UNQUOTED(HAVE_SPEED_CYCLECOUNTER, $cyclecounter_size,
-    [Tune directory speed_cyclecounter, undef=none, 1=32bits, 2=64bits)])
-  fi
-  AC_SUBST(SPEED_CYCLECOUNTER_OBJ)
-
-
-  # Calling conventions checking, selected according to ABI.
-  #
-                    eval tmp=\"\$CALLING_CONVENTIONS_OBJS$abi1\"
-  test -n "$tmp" || eval tmp=\"\$CALLING_CONVENTIONS_OBJS$abi2\"
-  if test "$enable_assembly" = "yes"; then
-     CALLING_CONVENTIONS_OBJS="$tmp"
-  else
-     CALLING_CONVENTIONS_OBJS=""
-  fi
-
-  if test -n "$CALLING_CONVENTIONS_OBJS"; then
-    AC_DEFINE(HAVE_CALLING_CONVENTIONS,1,
-    [Define to 1 if tests/libtests has calling conventions checking for the CPU])
-  fi
-  AC_SUBST(CALLING_CONVENTIONS_OBJS)
-
-fi
-
-
-# If the user gave an MPN_PATH, use that verbatim, otherwise choose
-# according to the ABI and add "generic".
-#
-if test -n "$MPN_PATH"; then
-  path="$MPN_PATH"
-else
-                    eval tmp=\"\$path$abi1\"
-  test -n "$tmp" || eval tmp=\"\$path$abi2\"
-  path="$tmp generic"
-fi
-
-
 # Long long limb setup for gmp.h.
 case $limb_chosen in
 longlong) DEFN_LONG_LONG_LIMB="#define _LONG_LONG_LIMB 1"    ;;
@@ -1338,19 +1198,6 @@ GMP_C_DOUBLE_FORMAT
 # vsnprintf.
 #
 AC_CHECK_FUNCS(alarm attr_get clock cputime getpagesize getrusage gettimeofday getsysinfo localeconv memset mmap mprotect nl_langinfo obstack_vprintf popen processor_info pstat_getprocessor raise read_real_time sigaction sigaltstack sigstack syssgi strchr strerror strnlen strtol strtoul sysconf sysctl sysctlbyname times)
-
-# clock_gettime is in librt on *-*-osf5.1 and on glibc, so att -lrt to
-# TUNE_LIBS if needed. On linux (tested on x86_32, 2.6.26),
-# clock_getres reports ns accuracy, while in a quick test on osf
-# clock_getres said only 1 millisecond.
-
-old_LIBS="$LIBS"
-AC_SEARCH_LIBS(clock_gettime, rt, [
-  AC_DEFINE([HAVE_CLOCK_GETTIME],1,[Define to 1 if you have the `clock_gettime' function])])
-TUNE_LIBS="$LIBS"
-LIBS="$old_LIBS"
-
-AC_SUBST(TUNE_LIBS)
 
 GMP_FUNC_VSNPRINTF
 GMP_FUNC_SSCANF_WRITABLE_INPUT
@@ -2259,36 +2106,6 @@ if test "$ac_cv_sizeof_mp_limb_t" = 0; then
 fi
 AC_SUBST(GMP_LIMB_BITS, `expr 8 \* $ac_cv_sizeof_mp_limb_t`)
 GMP_DEFINE_RAW(["define(<SIZEOF_UNSIGNED>,<$ac_cv_sizeof_unsigned>)"])
-
-# Check compiler limb size matches gmp-mparam.h
-#
-# FIXME: Some of the cycle counter objects in the tune directory depend on
-# the size of ulong, it'd be possible to check that here, though a mismatch
-# probably wouldn't want to be fatal, none of the libgmp assembler code
-# depends on ulong.
-#
-mparam_bits=[`sed -n 's/^#define GMP_LIMB_BITS[ 	][ 	]*\([0-9]*\).*$/\1/p' $gmp_mparam_source`]
-if test -n "$mparam_bits" && test "$mparam_bits" -ne $GMP_LIMB_BITS; then
-  if test "$test_CFLAGS" = set; then
-    AC_MSG_ERROR([Oops, mp_limb_t is $GMP_LIMB_BITS bits, but the assembler code
-in this configuration expects $mparam_bits bits.
-You appear to have set \$CFLAGS, perhaps you also need to tell GMP the
-intended ABI, see "ABI and ISA" in the manual.])
-  else
-    AC_MSG_ERROR([Oops, mp_limb_t is $GMP_LIMB_BITS bits, but the assembler code
-in this configuration expects $mparam_bits bits.])
-  fi
-fi
-
-GMP_DEFINE_RAW(["define(<GMP_LIMB_BITS>,$GMP_LIMB_BITS)"])
-GMP_DEFINE_RAW(["define(<GMP_NAIL_BITS>,$GMP_NAIL_BITS)"])
-GMP_DEFINE_RAW(["define(<GMP_NUMB_BITS>,eval(GMP_LIMB_BITS-GMP_NAIL_BITS))"])
-
-
-AC_SUBST(mpn_objects)
-AC_SUBST(mpn_objs_in_libgmp)
-AC_SUBST(gmp_srclinks)
-
 
 # Configs for demos/pexpr.c.
 #
