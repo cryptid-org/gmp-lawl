@@ -334,12 +334,6 @@ __GMP_DECLSPEC void mpz_add (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_add_ui __gmpz_add_ui
 __GMP_DECLSPEC void mpz_add_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
-#define mpz_addmul __gmpz_addmul
-__GMP_DECLSPEC void mpz_addmul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_addmul_ui __gmpz_addmul_ui
-__GMP_DECLSPEC void mpz_addmul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
 #define mpz_and __gmpz_and
 __GMP_DECLSPEC void mpz_and (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
