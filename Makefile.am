@@ -110,16 +110,11 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz
+SUBDIRS = mpz
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
 
-
-if WANT_CXX
-GMPXX_HEADERS_OPTION = gmpxx.h
-endif
-EXTRA_DIST += gmpxx.h
 
 # gmp.h and mp.h are architecture dependent, mainly since they encode the
 # limb size used in libgmp.  For that reason they belong under $exec_prefix
@@ -195,8 +190,6 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo \
   mpz/xor$U.lo
 
-MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
-
 
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
 # libraries like mpz/libmpz.la.  Or rather it works, but it ends up putting
@@ -218,8 +211,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
   version.c nextprime.c primesieve.c
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
-  $(MPZ_OBJECTS)	\
-  $(MPN_OBJECTS) @mpn_objs_in_libgmp@
+  $(MPZ_OBJECTS)
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)
@@ -289,10 +281,6 @@ fib_table.h: gen-fib$(EXEEXT_FOR_BUILD)
 	./gen-fib header $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >fib_table.h || (rm -f fib_table.h; exit 1)
 BUILT_SOURCES += fib_table.h
 
-mpn/fib_table.c: gen-fib$(EXEEXT_FOR_BUILD)
-	./gen-fib table $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/fib_table.c || (rm -f mpn/fib_table.c; exit 1)
-BUILT_SOURCES += mpn/fib_table.c
-
 gen-fib$(EXEEXT_FOR_BUILD): gen-fib$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-fib$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-fib$(U_FOR_BUILD).c -o gen-fib$(EXEEXT_FOR_BUILD)
 DISTCLEANFILES += gen-fib$(EXEEXT_FOR_BUILD)
@@ -302,10 +290,6 @@ EXTRA_DIST += gen-fib.c
 mp_bases.h: gen-bases$(EXEEXT_FOR_BUILD)
 	./gen-bases header $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mp_bases.h || (rm -f mp_bases.h; exit 1)
 BUILT_SOURCES += mp_bases.h
-
-mpn/mp_bases.c: gen-bases$(EXEEXT_FOR_BUILD)
-	./gen-bases table $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/mp_bases.c || (rm -f mpn/mp_bases.c; exit 1)
-BUILT_SOURCES += mpn/mp_bases.c
 
 gen-bases$(EXEEXT_FOR_BUILD): gen-bases$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-bases$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-bases$(U_FOR_BUILD).c -o gen-bases$(EXEEXT_FOR_BUILD) $(LIBM_FOR_BUILD)
@@ -322,20 +306,11 @@ gen-trialdivtab$(EXEEXT_FOR_BUILD): gen-trialdivtab$(U_FOR_BUILD).c bootstrap.c
 DISTCLEANFILES += gen-trialdivtab$(EXEEXT_FOR_BUILD)
 EXTRA_DIST += gen-trialdivtab.c
 
-
-mpn/jacobitab.h: gen-jacobitab$(EXEEXT_FOR_BUILD)
-	./gen-jacobitab >mpn/jacobitab.h || (rm -f mpn/jacobitab.h; exit 1)
-BUILT_SOURCES += mpn/jacobitab.h
-
 gen-jacobitab$(EXEEXT_FOR_BUILD): gen-jacobitab$(U_FOR_BUILD).c
 	$(CC_FOR_BUILD) `test -f 'gen-jacobitab$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-jacobitab$(U_FOR_BUILD).c -o gen-jacobitab$(EXEEXT_FOR_BUILD)
 DISTCLEANFILES += gen-jacobitab$(EXEEXT_FOR_BUILD)
 EXTRA_DIST += gen-jacobitab.c
 
-
-mpn/perfsqr.h: gen-psqr$(EXEEXT_FOR_BUILD)
-	./gen-psqr $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/perfsqr.h || (rm -f mpn/perfsqr.h; exit 1)
-BUILT_SOURCES += mpn/perfsqr.h
 
 gen-psqr$(EXEEXT_FOR_BUILD): gen-psqr$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-psqr$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-psqr$(U_FOR_BUILD).c -o gen-psqr$(EXEEXT_FOR_BUILD) $(LIBM_FOR_BUILD)

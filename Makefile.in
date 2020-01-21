@@ -194,13 +194,12 @@ am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
-	$(am__configure_deps) $(am__include_HEADERS_DIST) \
-	$(am__DIST_COMMON)
+	$(am__configure_deps) $(include_HEADERS) $(am__DIST_COMMON)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = gmp.h gmp-mparam.h
+CONFIG_CLEAN_FILES = gmp.h
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -232,7 +231,7 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)" \
 	"$(DESTDIR)$(includeexecdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-am__DEPENDENCIES_1 = $(MPZ_OBJECTS) $(MPN_OBJECTS)
+am__DEPENDENCIES_1 = $(MPZ_OBJECTS)
 am_libgmp_la_OBJECTS = assert.lo compat.lo errno.lo extract-dbl.lo \
 	invalid.lo memory.lo mp_bpl.lo mp_clz_tab.lo mp_dv_tab.lo \
 	mp_minv_tab.lo mp_get_fns.lo mp_set_fns.lo version.lo \
@@ -320,7 +319,6 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
-am__include_HEADERS_DIST = gmpxx.h
 HEADERS = $(include_HEADERS) $(nodist_includeexec_HEADERS)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
@@ -410,7 +408,6 @@ AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
 CC = @CC@
-CCAS = @CCAS@
 CC_FOR_BUILD = @CC_FOR_BUILD@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
@@ -432,7 +429,6 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 EXEEXT_FOR_BUILD = @EXEEXT_FOR_BUILD@
 FGREP = @FGREP@
-GMP_LIMB_BITS = @GMP_LIMB_BITS@
 GMP_NAIL_BITS = @GMP_NAIL_BITS@
 GREP = @GREP@
 HAVE_CLOCK_01 = @HAVE_CLOCK_01@
@@ -556,7 +552,7 @@ LIBGMP_LT_AGE = 3
 LIBGMPXX_LT_CURRENT = 9
 LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE = 5
-SUBDIRS = mpn mpz
+SUBDIRS = mpz
 
 # The "test -f" support for srcdir!=builddir is similar to the automake .c.o
 # etc rules, but with each foo.c explicitly, since $< is not portable
@@ -576,12 +572,11 @@ SUBDIRS = mpn mpz
 
 # Distribute mini-gmp. Test sources copied by dist-hook.
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
-	COPYING.LESSERv3 COPYINGv2 COPYINGv3 gmpxx.h bootstrap.c \
-	gen-fac.c gen-fib.c gen-bases.c gen-trialdivtab.c \
-	gen-jacobitab.c gen-psqr.c mini-gmp/README mini-gmp/mini-gmp.c \
+	COPYING.LESSERv3 COPYINGv2 COPYINGv3 bootstrap.c gen-fac.c \
+	gen-fib.c gen-bases.c gen-trialdivtab.c gen-jacobitab.c \
+	gen-psqr.c mini-gmp/README mini-gmp/mini-gmp.c \
 	mini-gmp/mini-gmp.h mini-gmp/tests/Makefile \
 	mini-gmp/tests/run-tests
-@WANT_CXX_TRUE@GMPXX_HEADERS_OPTION = gmpxx.h
 
 # gmp.h and mp.h are architecture dependent, mainly since they encode the
 # limb size used in libgmp.  For that reason they belong under $exec_prefix
@@ -596,9 +591,7 @@ includeexecdir = $(exec_prefix)/include
 include_HEADERS = $(GMPXX_HEADERS_OPTION)
 nodist_includeexec_HEADERS = gmp.h
 lib_LTLIBRARIES = libgmp.la $(GMPXX_LTLIBRARIES_OPTION)
-BUILT_SOURCES = gmp.h fac_table.h fib_table.h mpn/fib_table.c \
-	mp_bases.h mpn/mp_bases.c trialdivtab.h mpn/jacobitab.h \
-	mpn/perfsqr.h
+BUILT_SOURCES = gmp.h fac_table.h fib_table.h mp_bases.h trialdivtab.h
 DISTCLEANFILES = $(BUILT_SOURCES) config.m4 @gmp_srclinks@ \
 	gen-fac$(EXEEXT_FOR_BUILD) gen-fib$(EXEEXT_FOR_BUILD) \
 	gen-bases$(EXEEXT_FOR_BUILD) \
@@ -659,7 +652,6 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo \
   mpz/xor$U.lo
 
-MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
 # libraries like mpz/libmpz.la.  Or rather it works, but it ends up putting
@@ -681,8 +673,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
 
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
-  $(MPZ_OBJECTS)	\
-  $(MPN_OBJECTS) @mpn_objs_in_libgmp@
+  $(MPZ_OBJECTS)
 
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
@@ -1341,17 +1332,11 @@ gen-fac$(EXEEXT_FOR_BUILD): gen-fac$(U_FOR_BUILD).c bootstrap.c
 fib_table.h: gen-fib$(EXEEXT_FOR_BUILD)
 	./gen-fib header $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >fib_table.h || (rm -f fib_table.h; exit 1)
 
-mpn/fib_table.c: gen-fib$(EXEEXT_FOR_BUILD)
-	./gen-fib table $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/fib_table.c || (rm -f mpn/fib_table.c; exit 1)
-
 gen-fib$(EXEEXT_FOR_BUILD): gen-fib$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-fib$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-fib$(U_FOR_BUILD).c -o gen-fib$(EXEEXT_FOR_BUILD)
 
 mp_bases.h: gen-bases$(EXEEXT_FOR_BUILD)
 	./gen-bases header $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mp_bases.h || (rm -f mp_bases.h; exit 1)
-
-mpn/mp_bases.c: gen-bases$(EXEEXT_FOR_BUILD)
-	./gen-bases table $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/mp_bases.c || (rm -f mpn/mp_bases.c; exit 1)
 
 gen-bases$(EXEEXT_FOR_BUILD): gen-bases$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-bases$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-bases$(U_FOR_BUILD).c -o gen-bases$(EXEEXT_FOR_BUILD) $(LIBM_FOR_BUILD)
@@ -1362,14 +1347,8 @@ trialdivtab.h: gen-trialdivtab$(EXEEXT_FOR_BUILD)
 gen-trialdivtab$(EXEEXT_FOR_BUILD): gen-trialdivtab$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-trialdivtab$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-trialdivtab$(U_FOR_BUILD).c -o gen-trialdivtab$(EXEEXT_FOR_BUILD) $(LIBM_FOR_BUILD)
 
-mpn/jacobitab.h: gen-jacobitab$(EXEEXT_FOR_BUILD)
-	./gen-jacobitab >mpn/jacobitab.h || (rm -f mpn/jacobitab.h; exit 1)
-
 gen-jacobitab$(EXEEXT_FOR_BUILD): gen-jacobitab$(U_FOR_BUILD).c
 	$(CC_FOR_BUILD) `test -f 'gen-jacobitab$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-jacobitab$(U_FOR_BUILD).c -o gen-jacobitab$(EXEEXT_FOR_BUILD)
-
-mpn/perfsqr.h: gen-psqr$(EXEEXT_FOR_BUILD)
-	./gen-psqr $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/perfsqr.h || (rm -f mpn/perfsqr.h; exit 1)
 
 gen-psqr$(EXEEXT_FOR_BUILD): gen-psqr$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-psqr$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-psqr$(U_FOR_BUILD).c -o gen-psqr$(EXEEXT_FOR_BUILD) $(LIBM_FOR_BUILD)
