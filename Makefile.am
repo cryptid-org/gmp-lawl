@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz mpq mpf rand tune
+SUBDIRS = mpn mpz mpf rand tune
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -215,17 +215,6 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo mpz/urandomb$U.lo	\
   mpz/urandomm$U.lo mpz/xor$U.lo
 
-MPQ_OBJECTS = mpq/abs$U.lo mpq/aors$U.lo				\
-  mpq/canonicalize$U.lo mpq/clear$U.lo mpq/clears$U.lo			\
-  mpq/cmp$U.lo mpq/cmp_si$U.lo mpq/cmp_ui$U.lo mpq/div$U.lo		\
-  mpq/get_d$U.lo mpq/get_den$U.lo mpq/get_num$U.lo mpq/get_str$U.lo	\
-  mpq/init$U.lo mpq/inits$U.lo mpq/inp_str$U.lo mpq/inv$U.lo		\
-  mpq/md_2exp$U.lo mpq/mul$U.lo mpq/neg$U.lo mpq/out_str$U.lo		\
-  mpq/set$U.lo mpq/set_den$U.lo mpq/set_num$U.lo			\
-  mpq/set_si$U.lo mpq/set_str$U.lo mpq/set_ui$U.lo			\
-  mpq/equal$U.lo mpq/set_z$U.lo mpq/set_d$U.lo				\
-  mpq/set_f$U.lo mpq/swap$U.lo
-
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
 
@@ -256,7 +245,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
   version.c nextprime.c primesieve.c
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
-  $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
+  $(MPF_OBJECTS) $(MPZ_OBJECTS)	\
   $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
   $(RANDOM_OBJECTS)
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
