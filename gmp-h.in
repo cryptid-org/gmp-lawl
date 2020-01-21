@@ -390,15 +390,6 @@ __GMP_DECLSPEC void mpz_init_set_ui (mpz_ptr, unsigned long int);
 #define mpz_invert __gmpz_invert
 __GMP_DECLSPEC int mpz_invert (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
-#define mpz_lucnum_ui __gmpz_lucnum_ui
-__GMP_DECLSPEC void mpz_lucnum_ui (mpz_ptr, unsigned long int);
-
-#define mpz_lucnum2_ui __gmpz_lucnum2_ui
-__GMP_DECLSPEC void mpz_lucnum2_ui (mpz_ptr, mpz_ptr, unsigned long int);
-
-#define mpz_millerrabin __gmpz_millerrabin
-__GMP_DECLSPEC int mpz_millerrabin (mpz_srcptr, int) __GMP_ATTRIBUTE_PURE;
-
 #define mpz_mod __gmpz_mod
 __GMP_DECLSPEC void mpz_mod (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
@@ -406,12 +397,6 @@ __GMP_DECLSPEC void mpz_mod (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
 #define mpz_mul __gmpz_mul
 __GMP_DECLSPEC void mpz_mul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_mul_2exp __gmpz_mul_2exp
-__GMP_DECLSPEC void mpz_mul_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-#define mpz_mul_si __gmpz_mul_si
-__GMP_DECLSPEC void mpz_mul_si (mpz_ptr, mpz_srcptr, long int);
 
 #define mpz_mul_ui __gmpz_mul_ui
 __GMP_DECLSPEC void mpz_mul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
