@@ -1083,56 +1083,6 @@ if test $enable_cxx = yes; then
 fi
 
 
-
-define(GMP_MULFUNC_CHOICES,
-[# functions that can be provided by multi-function files
-tmp_mulfunc=
-case $tmp_fn in
-  add_n|sub_n)       tmp_mulfunc="aors_n"    ;;
-  add_err1_n|sub_err1_n)
-		     tmp_mulfunc="aors_err1_n" ;;
-  add_err2_n|sub_err2_n)
-		     tmp_mulfunc="aors_err2_n" ;;
-  add_err3_n|sub_err3_n)
-		     tmp_mulfunc="aors_err3_n" ;;
-  cnd_add_n|cnd_sub_n) tmp_mulfunc="cnd_aors_n"   ;;
-  sec_add_1|sec_sub_1) tmp_mulfunc="sec_aors_1"   ;;
-  addmul_1|submul_1) tmp_mulfunc="aorsmul_1" ;;
-  mul_2|addmul_2)    tmp_mulfunc="aormul_2" ;;
-  mul_3|addmul_3)    tmp_mulfunc="aormul_3" ;;
-  mul_4|addmul_4)    tmp_mulfunc="aormul_4" ;;
-  popcount|hamdist)  tmp_mulfunc="popham"    ;;
-  and_n|andn_n|nand_n | ior_n|iorn_n|nior_n | xor_n|xnor_n)
-                     tmp_mulfunc="logops_n"  ;;
-  lshift|rshift)     tmp_mulfunc="lorrshift";;
-  addlsh1_n)
-		     tmp_mulfunc="aorslsh1_n aorrlsh1_n aorsorrlsh1_n";;
-  sublsh1_n)
-		     tmp_mulfunc="aorslsh1_n sorrlsh1_n aorsorrlsh1_n";;
-  rsblsh1_n)
-		     tmp_mulfunc="aorrlsh1_n sorrlsh1_n aorsorrlsh1_n";;
-  addlsh2_n)
-		     tmp_mulfunc="aorslsh2_n aorrlsh2_n aorsorrlsh2_n";;
-  sublsh2_n)
-		     tmp_mulfunc="aorslsh2_n sorrlsh2_n aorsorrlsh2_n";;
-  rsblsh2_n)
-		     tmp_mulfunc="aorrlsh2_n sorrlsh2_n aorsorrlsh2_n";;
-  addlsh_n)
-		     tmp_mulfunc="aorslsh_n aorrlsh_n aorsorrlsh_n";;
-  sublsh_n)
-		     tmp_mulfunc="aorslsh_n sorrlsh_n aorsorrlsh_n";;
-  rsblsh_n)
-		     tmp_mulfunc="aorrlsh_n sorrlsh_n aorsorrlsh_n";;
-  rsh1add_n|rsh1sub_n)
-		     tmp_mulfunc="rsh1aors_n";;
-  sec_div_qr|sec_div_r)
-		     tmp_mulfunc="sec_div";;
-  sec_pi1_div_qr|sec_pi1_div_r)
-		     tmp_mulfunc="sec_pi1_div";;
-esac
-])
-
-
 dnl  Usage: GMP_FILE_TO_FUNCTION_BASE(func,file)
 dnl
 dnl  Set $func to the function base name for $file, eg. dive_1 gives

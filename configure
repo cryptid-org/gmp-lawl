@@ -21900,10 +21900,6 @@ fi
 
 
 
-
-
-
-
 # Don't demand an m4 unless it's actually needed.
 if test $found_asm = yes; then
 

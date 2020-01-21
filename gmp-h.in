@@ -406,70 +406,20 @@ __GMP_DECLSPEC void mpz_mul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 __GMP_DECLSPEC void mpz_neg (mpz_ptr, mpz_srcptr);
 #endif
 
-#define mpz_nextprime __gmpz_nextprime
-__GMP_DECLSPEC void mpz_nextprime (mpz_ptr, mpz_srcptr);
-
-#define mpz_out_raw __gmpz_out_raw
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_out_raw (FILE *, mpz_srcptr);
-#endif
-
-#define mpz_out_str __gmpz_out_str
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_out_str (FILE *, int, mpz_srcptr);
-#endif
-
-#define mpz_perfect_power_p __gmpz_perfect_power_p
-__GMP_DECLSPEC int mpz_perfect_power_p (mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_perfect_square_p __gmpz_perfect_square_p
-#if __GMP_INLINE_PROTOTYPES || defined (__GMP_FORCE_mpz_perfect_square_p)
-__GMP_DECLSPEC int mpz_perfect_square_p (mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-#endif
-
-#define mpz_popcount __gmpz_popcount
-#if __GMP_INLINE_PROTOTYPES || defined (__GMP_FORCE_mpz_popcount)
-__GMP_DECLSPEC mp_bitcnt_t mpz_popcount (mpz_srcptr) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
-#endif
-
 #define mpz_pow_ui __gmpz_pow_ui
 __GMP_DECLSPEC void mpz_pow_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
 #define mpz_powm __gmpz_powm
 __GMP_DECLSPEC void mpz_powm (mpz_ptr, mpz_srcptr, mpz_srcptr, mpz_srcptr);
 
-#define mpz_powm_sec __gmpz_powm_sec
-__GMP_DECLSPEC void mpz_powm_sec (mpz_ptr, mpz_srcptr, mpz_srcptr, mpz_srcptr);
-
 #define mpz_powm_ui __gmpz_powm_ui
 __GMP_DECLSPEC void mpz_powm_ui (mpz_ptr, mpz_srcptr, unsigned long int, mpz_srcptr);
-
-#define mpz_probab_prime_p __gmpz_probab_prime_p
-__GMP_DECLSPEC int mpz_probab_prime_p (mpz_srcptr, int) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_realloc2 __gmpz_realloc2
-__GMP_DECLSPEC void mpz_realloc2 (mpz_ptr, mp_bitcnt_t);
-
-#define mpz_remove __gmpz_remove
-__GMP_DECLSPEC mp_bitcnt_t mpz_remove (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_root __gmpz_root
-__GMP_DECLSPEC int mpz_root (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_rootrem __gmpz_rootrem
-__GMP_DECLSPEC void mpz_rootrem (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_scan0 __gmpz_scan0
-__GMP_DECLSPEC mp_bitcnt_t mpz_scan0 (mpz_srcptr, mp_bitcnt_t) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
 
 #define mpz_scan1 __gmpz_scan1
 __GMP_DECLSPEC mp_bitcnt_t mpz_scan1 (mpz_srcptr, mp_bitcnt_t) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
 
 #define mpz_set __gmpz_set
 __GMP_DECLSPEC void mpz_set (mpz_ptr, mpz_srcptr);
-
-#define mpz_set_d __gmpz_set_d
-__GMP_DECLSPEC void mpz_set_d (mpz_ptr, double);
 
 #define mpz_set_si __gmpz_set_si
 __GMP_DECLSPEC void mpz_set_si (mpz_ptr, signed long int);
@@ -480,22 +430,8 @@ __GMP_DECLSPEC int mpz_set_str (mpz_ptr, const char *, int);
 #define mpz_set_ui __gmpz_set_ui
 __GMP_DECLSPEC void mpz_set_ui (mpz_ptr, unsigned long int);
 
-#define mpz_setbit __gmpz_setbit
-__GMP_DECLSPEC void mpz_setbit (mpz_ptr, mp_bitcnt_t);
-
-#define mpz_size __gmpz_size
-#if __GMP_INLINE_PROTOTYPES || defined (__GMP_FORCE_mpz_size)
-__GMP_DECLSPEC size_t mpz_size (mpz_srcptr) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
-#endif
-
 #define mpz_sizeinbase __gmpz_sizeinbase
 __GMP_DECLSPEC size_t mpz_sizeinbase (mpz_srcptr, int) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
-
-#define mpz_sqrt __gmpz_sqrt
-__GMP_DECLSPEC void mpz_sqrt (mpz_ptr, mpz_srcptr);
-
-#define mpz_sqrtrem __gmpz_sqrtrem
-__GMP_DECLSPEC void mpz_sqrtrem (mpz_ptr, mpz_ptr, mpz_srcptr);
 
 #define mpz_sub __gmpz_sub
 __GMP_DECLSPEC void mpz_sub (mpz_ptr, mpz_srcptr, mpz_srcptr);
@@ -503,71 +439,14 @@ __GMP_DECLSPEC void mpz_sub (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_sub_ui __gmpz_sub_ui
 __GMP_DECLSPEC void mpz_sub_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
-#define mpz_ui_sub __gmpz_ui_sub
-__GMP_DECLSPEC void mpz_ui_sub (mpz_ptr, unsigned long int, mpz_srcptr);
-
-#define mpz_submul __gmpz_submul
-__GMP_DECLSPEC void mpz_submul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_submul_ui __gmpz_submul_ui
-__GMP_DECLSPEC void mpz_submul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_swap __gmpz_swap
-__GMP_DECLSPEC void mpz_swap (mpz_ptr, mpz_ptr) __GMP_NOTHROW;
-
-#define mpz_tdiv_ui __gmpz_tdiv_ui
-__GMP_DECLSPEC unsigned long int mpz_tdiv_ui (mpz_srcptr, unsigned long int) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_tdiv_q __gmpz_tdiv_q
-__GMP_DECLSPEC void mpz_tdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
 #define mpz_tdiv_q_2exp __gmpz_tdiv_q_2exp
 __GMP_DECLSPEC void mpz_tdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-#define mpz_tdiv_q_ui __gmpz_tdiv_q_ui
-__GMP_DECLSPEC unsigned long int mpz_tdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_tdiv_qr __gmpz_tdiv_qr
-__GMP_DECLSPEC void mpz_tdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_tdiv_qr_ui __gmpz_tdiv_qr_ui
-__GMP_DECLSPEC unsigned long int mpz_tdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_tdiv_r __gmpz_tdiv_r
-__GMP_DECLSPEC void mpz_tdiv_r (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_tdiv_r_2exp __gmpz_tdiv_r_2exp
-__GMP_DECLSPEC void mpz_tdiv_r_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-#define mpz_tdiv_r_ui __gmpz_tdiv_r_ui
-__GMP_DECLSPEC unsigned long int mpz_tdiv_r_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
 #define mpz_tstbit __gmpz_tstbit
 __GMP_DECLSPEC int mpz_tstbit (mpz_srcptr, mp_bitcnt_t) __GMP_NOTHROW __GMP_ATTRIBUTE_PURE;
 
 #define mpz_ui_pow_ui __gmpz_ui_pow_ui
 __GMP_DECLSPEC void mpz_ui_pow_ui (mpz_ptr, unsigned long int, unsigned long int);
-
-#define mpz_xor __gmpz_xor
-#define mpz_eor __gmpz_xor
-__GMP_DECLSPEC void mpz_xor (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_limbs_read __gmpz_limbs_read
-__GMP_DECLSPEC mp_srcptr mpz_limbs_read (mpz_srcptr);
-
-#define mpz_limbs_write __gmpz_limbs_write
-__GMP_DECLSPEC mp_ptr mpz_limbs_write (mpz_ptr, mp_size_t);
-
-#define mpz_limbs_modify __gmpz_limbs_modify
-__GMP_DECLSPEC mp_ptr mpz_limbs_modify (mpz_ptr, mp_size_t);
-
-#define mpz_limbs_finish __gmpz_limbs_finish
-__GMP_DECLSPEC void mpz_limbs_finish (mpz_ptr, mp_size_t);
-
-#define mpz_roinit_n __gmpz_roinit_n
-__GMP_DECLSPEC mpz_srcptr mpz_roinit_n (mpz_ptr, mp_srcptr, mp_size_t);
-
-#define MPZ_ROINIT_N(xp, xs) {{0, (xs),(xp) }}
 
 /**************** mpz inlines ****************/
 
