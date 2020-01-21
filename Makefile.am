@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz mpf rand tune
+SUBDIRS = mpn mpz rand tune
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -142,26 +142,6 @@ DISTCLEANFILES = $(BUILT_SOURCES) config.m4 @gmp_srclinks@
 # Tell gmp.h it's building gmp, not an application, used by windows DLL stuff.
 AM_CPPFLAGS=-D__GMP_WITHIN_GMP
 
-
-MPF_OBJECTS = mpf/init$U.lo mpf/init2$U.lo mpf/inits$U.lo mpf/set$U.lo	    \
-  mpf/set_ui$U.lo mpf/set_si$U.lo mpf/set_str$U.lo mpf/set_d$U.lo	    \
-  mpf/set_z$U.lo mpf/iset$U.lo mpf/iset_ui$U.lo mpf/iset_si$U.lo	    \
-  mpf/iset_str$U.lo mpf/iset_d$U.lo mpf/clear$U.lo mpf/clears$U.lo	    \
-  mpf/get_str$U.lo mpf/dump$U.lo mpf/size$U.lo mpf/eq$U.lo mpf/reldiff$U.lo \
-  mpf/sqrt$U.lo mpf/random2$U.lo mpf/inp_str$U.lo mpf/out_str$U.lo	    \
-  mpf/add$U.lo mpf/add_ui$U.lo mpf/sub$U.lo mpf/sub_ui$U.lo mpf/ui_sub$U.lo \
-  mpf/mul$U.lo mpf/mul_ui$U.lo mpf/div$U.lo mpf/div_ui$U.lo mpf/cmp_z$U.lo  \
-  mpf/cmp$U.lo mpf/cmp_d$U.lo mpf/cmp_ui$U.lo mpf/cmp_si$U.lo		    \
-  mpf/mul_2exp$U.lo mpf/div_2exp$U.lo mpf/abs$U.lo mpf/neg$U.lo		    \
-  mpf/set_q$U.lo mpf/get_d$U.lo mpf/get_d_2exp$U.lo mpf/set_dfl_prec$U.lo   \
-  mpf/set_prc$U.lo mpf/set_prc_raw$U.lo mpf/get_dfl_prec$U.lo               \
-  mpf/get_prc$U.lo mpf/ui_div$U.lo mpf/sqrt_ui$U.lo                         \
-  mpf/ceilfloor$U.lo mpf/trunc$U.lo mpf/pow_ui$U.lo			    \
-  mpf/urandomb$U.lo mpf/swap$U.lo					    \
-  mpf/fits_sint$U.lo mpf/fits_slong$U.lo mpf/fits_sshort$U.lo		    \
-  mpf/fits_uint$U.lo mpf/fits_ulong$U.lo mpf/fits_ushort$U.lo		    \
-  mpf/get_si$U.lo mpf/get_ui$U.lo					    \
-  mpf/int_p$U.lo
 
 MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/aorsmul$U.lo mpz/aorsmul_i$U.lo mpz/and$U.lo mpz/array_init$U.lo	\
@@ -245,7 +225,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
   version.c nextprime.c primesieve.c
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
-  $(MPF_OBJECTS) $(MPZ_OBJECTS)	\
+  $(MPZ_OBJECTS)	\
   $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
   $(RANDOM_OBJECTS)
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
