@@ -337,29 +337,8 @@ __GMP_DECLSPEC void mpz_add_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 #define mpz_cdiv_q __gmpz_cdiv_q
 __GMP_DECLSPEC void mpz_cdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
-#define mpz_cdiv_q_2exp __gmpz_cdiv_q_2exp
-__GMP_DECLSPEC void mpz_cdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
 #define mpz_cdiv_q_ui __gmpz_cdiv_q_ui
 __GMP_DECLSPEC unsigned long int mpz_cdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_cdiv_qr __gmpz_cdiv_qr
-__GMP_DECLSPEC void mpz_cdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_cdiv_qr_ui __gmpz_cdiv_qr_ui
-__GMP_DECLSPEC unsigned long int mpz_cdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_cdiv_r __gmpz_cdiv_r
-__GMP_DECLSPEC void mpz_cdiv_r (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_cdiv_r_2exp __gmpz_cdiv_r_2exp
-__GMP_DECLSPEC void mpz_cdiv_r_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-#define mpz_cdiv_r_ui __gmpz_cdiv_r_ui
-__GMP_DECLSPEC unsigned long int mpz_cdiv_r_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_cdiv_ui __gmpz_cdiv_ui
-__GMP_DECLSPEC unsigned long int mpz_cdiv_ui (mpz_srcptr, unsigned long int) __GMP_ATTRIBUTE_PURE;
 
 #define mpz_clear __gmpz_clear
 __GMP_DECLSPEC void mpz_clear (mpz_ptr);
