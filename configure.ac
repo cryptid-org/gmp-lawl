@@ -2916,7 +2916,7 @@ gmp_mpn_functions="$extra_functions					   \
   mod_1_1 mod_1_2 mod_1_3 mod_1_4 lshiftc				   \
   mul mul_fft mul_n sqr mul_basecase sqr_basecase nussbaumer_mul	   \
   mulmid_basecase toom42_mulmid mulmid_n mulmid				   \
-  random random2 pow_1							   \
+  pow_1							   \
   rootrem sqrtrem sizeinbase get_str set_str				   \
   scan0 scan1 popcount hamdist cmp zero_p				   \
   perfsqr perfpow							   \
@@ -3910,7 +3910,7 @@ GMP_FINISH
 
 AC_OUTPUT(Makefile							\
   mpn/Makefile			\
-  mpz/Makefile rand/Makefile \
+  mpz/Makefile \
   tune/Makefile						\
   gmp.h:gmp-h.in)
 

@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz rand tune
+SUBDIRS = mpn mpz tune
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -181,9 +181,9 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/out_raw$U.lo mpz/out_str$U.lo mpz/perfpow$U.lo mpz/perfsqr$U.lo	\
   mpz/popcount$U.lo mpz/pow_ui$U.lo mpz/powm$U.lo mpz/powm_sec$U.lo	\
   mpz/powm_ui$U.lo mpz/primorial_ui$U.lo				\
-  mpz/pprime_p$U.lo mpz/random$U.lo mpz/random2$U.lo			\
+  mpz/pprime_p$U.lo			\
   mpz/realloc$U.lo mpz/realloc2$U.lo mpz/remove$U.lo mpz/roinit_n$U.lo  \
-  mpz/root$U.lo mpz/rootrem$U.lo mpz/rrandomb$U.lo mpz/scan0$U.lo	\
+  mpz/root$U.lo mpz/rootrem$U.lo mpz/scan0$U.lo	\
   mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo mpz/set_f$U.lo		\
   mpz/set_q$U.lo mpz/set_si$U.lo mpz/set_str$U.lo mpz/set_ui$U.lo	\
   mpz/setbit$U.lo							\
@@ -192,17 +192,10 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/tdiv_ui$U.lo mpz/tdiv_q$U.lo mpz/tdiv_q_2exp$U.lo			\
   mpz/tdiv_q_ui$U.lo mpz/tdiv_qr$U.lo mpz/tdiv_qr_ui$U.lo		\
   mpz/tdiv_r$U.lo mpz/tdiv_r_2exp$U.lo mpz/tdiv_r_ui$U.lo		\
-  mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo mpz/urandomb$U.lo	\
-  mpz/urandomm$U.lo mpz/xor$U.lo
+  mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo \
+  mpz/xor$U.lo
 
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
-
-
-RANDOM_OBJECTS =							\
-  rand/rand$U.lo rand/randclr$U.lo rand/randdef$U.lo rand/randiset$U.lo	\
-  rand/randlc2s$U.lo rand/randlc2x$U.lo rand/randmt$U.lo		\
-  rand/randmts$U.lo rand/rands$U.lo rand/randsd$U.lo rand/randsdui$U.lo	\
-  rand/randbui$U.lo rand/randmui$U.lo
 
 
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
@@ -226,8 +219,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
   $(MPZ_OBJECTS)	\
-  $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
-  $(RANDOM_OBJECTS)
+  $(MPN_OBJECTS) @mpn_objs_in_libgmp@
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)
