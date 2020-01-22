@@ -465,38 +465,6 @@ __GMP_DECLSPEC void mpz_ui_pow_ui (mpz_ptr, unsigned long int, unsigned long int
    __GMP_FORCE_foo arranges the inline to be suppressed, eg. mpz_abs.  */
 
 
-#if defined (__GMP_EXTERN_INLINE) || defined (__GMP_FORCE_mpz_fits_uint_p)
-#if ! defined (__GMP_FORCE_mpz_fits_uint_p)
-__GMP_EXTERN_INLINE
-#endif
-int
-mpz_fits_uint_p (mpz_srcptr __gmp_z) __GMP_NOTHROW
-{
-  __GMPZ_FITS_UTYPE_P (__gmp_z, UINT_MAX);
-}
-#endif
-
-#if defined (__GMP_EXTERN_INLINE) || defined (__GMP_FORCE_mpz_fits_ulong_p)
-#if ! defined (__GMP_FORCE_mpz_fits_ulong_p)
-__GMP_EXTERN_INLINE
-#endif
-int
-mpz_fits_ulong_p (mpz_srcptr __gmp_z) __GMP_NOTHROW
-{
-  __GMPZ_FITS_UTYPE_P (__gmp_z, ULONG_MAX);
-}
-#endif
-
-#if defined (__GMP_EXTERN_INLINE) || defined (__GMP_FORCE_mpz_fits_ushort_p)
-#if ! defined (__GMP_FORCE_mpz_fits_ushort_p)
-__GMP_EXTERN_INLINE
-#endif
-int
-mpz_fits_ushort_p (mpz_srcptr __gmp_z) __GMP_NOTHROW
-{
-  __GMPZ_FITS_UTYPE_P (__gmp_z, USHRT_MAX);
-}
-#endif
 
 #if defined (__GMP_EXTERN_INLINE) || defined (__GMP_FORCE_mpz_get_ui)
 #if ! defined (__GMP_FORCE_mpz_get_ui)
@@ -525,71 +493,9 @@ mpz_get_ui (mpz_srcptr __gmp_z) __GMP_NOTHROW
 }
 #endif
 
-
-#if defined (__GMP_EXTERN_INLINE) && ! defined (__GMP_FORCE_mpz_neg)
-__GMP_EXTERN_INLINE void
-mpz_neg (mpz_ptr __gmp_w, mpz_srcptr __gmp_u)
-{
-  if (__gmp_w != __gmp_u)
-    mpz_set (__gmp_w, __gmp_u);
-  __gmp_w->_mp_size = - __gmp_w->_mp_size;
-}
-#endif
-
-
-#if defined (__GMP_EXTERN_INLINE) || defined (__GMP_FORCE_mpz_size)
-#if ! defined (__GMP_FORCE_mpz_size)
-__GMP_EXTERN_INLINE
-#endif
-size_t
-mpz_size (mpz_srcptr __gmp_z) __GMP_NOTHROW
-{
-  return __GMP_ABS (__gmp_z->_mp_size);
-}
-#endif
-
-/* Allow faster testing for negative, zero, and positive.  */
-#define mpz_sgn(Z) ((Z)->_mp_size < 0 ? -1 : (Z)->_mp_size > 0)
-
-/* When using GCC, optimize certain common comparisons.  */
-#if defined (__GNUC__) && __GNUC__ >= 2
-#define mpz_cmp_ui(Z,UI) \
-  (__builtin_constant_p (UI) && (UI) == 0				\
-   ? mpz_sgn (Z) : _mpz_cmp_ui (Z,UI))
-#define mpz_cmp_si(Z,SI)						\
-  (__builtin_constant_p ((SI) >= 0) && (SI) >= 0			\
-   ? mpz_cmp_ui (Z, __GMP_CAST (unsigned long, SI))			\
-   : _mpz_cmp_si (Z,SI))
-#else
-#define mpz_cmp_ui(Z,UI) _mpz_cmp_ui (Z,UI)
-#define mpz_cmp_si(Z,UI) _mpz_cmp_si (Z,UI)
-#endif
-
-
-/* Using "&" rather than "&&" means these can come out branch-free.  Every
-   mpz_t has at least one limb allocated, so fetching the low limb is always
-   allowed.  */
-#define mpz_odd_p(z)   (((z)->_mp_size != 0) & __GMP_CAST (int, (z)->_mp_d[0]))
-#define mpz_even_p(z)  (! mpz_odd_p (z))
-
-
-/* Source-level compatibility with GMP 1.  */
-#define mpz_mdiv	mpz_fdiv_q
-#define mpz_mdivmod	mpz_fdiv_qr
-#define mpz_mmod	mpz_fdiv_r
-#define mpz_mdiv_ui	mpz_fdiv_q_ui
-#define mpz_mdivmod_ui(q,r,n,d) \
-  (((r) == 0) ? mpz_fdiv_q_ui (q,n,d) : mpz_fdiv_qr_ui (q,r,n,d))
-#define mpz_mmod_ui(r,n,d) \
-  (((r) == 0) ? mpz_fdiv_ui (n,d) : mpz_fdiv_r_ui (r,n,d))
-
 /* Useful synonyms, but not quite compatible with GMP 1.  */
-#define mpz_div		mpz_fdiv_q
-#define mpz_divmod	mpz_fdiv_qr
 #define mpz_div_ui	mpz_fdiv_q_ui
-#define mpz_divmod_ui	mpz_fdiv_qr_ui
 #define mpz_div_2exp	mpz_fdiv_q_2exp
-#define mpz_mod_2exp	mpz_fdiv_r_2exp
 
 enum
 {

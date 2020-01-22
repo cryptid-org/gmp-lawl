@@ -182,54 +182,6 @@ libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)
 
 
-# We need at least one .cc file in $(libgmpxx_la_SOURCES) so automake will
-# use $(CXXLINK) rather than the plain C $(LINK).  cxx/dummy.cc is that
-# file.
-
-if WANT_CXX
-GMPXX_LTLIBRARIES_OPTION = libgmpxx.la
-endif
-libgmpxx_la_SOURCES = cxx/dummy.cc
-libgmpxx_la_DEPENDENCIES = $(CXX_OBJECTS) libgmp.la
-libgmpxx_la_LIBADD = $(libgmpxx_la_DEPENDENCIES)
-libgmpxx_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMPXX_LDFLAGS) \
-  -version-info $(LIBGMPXX_LT_CURRENT):$(LIBGMPXX_LT_REVISION):$(LIBGMPXX_LT_AGE)
-
-
-
-install-data-hook:
-	@echo ''
-	@echo '+-------------------------------------------------------------+'
-	@echo '| CAUTION:                                                    |'
-	@echo '|                                                             |'
-	@echo '| If you have not already run "make check", then we strongly  |'
-	@echo '| recommend you do so.                                        |'
-	@echo '|                                                             |'
-	@echo '| GMP has been carefully tested by its authors, but compilers |'
-	@echo '| are all too often released with serious bugs.  GMP tends to |'
-	@echo '| explore interesting corners in compilers and has hit bugs   |'
-	@echo '| on quite a few occasions.                                   |'
-	@echo '|                                                             |'
-	@echo '+-------------------------------------------------------------+'
-	@echo ''
-
-
-# The "test -f" support for srcdir!=builddir is similar to the automake .c.o
-# etc rules, but with each foo.c explicitly, since $< is not portable
-# outside an inference rule.
-#
-# A quoted 'foo.c' is used with the "test -f"'s to avoid Sun make rewriting
-# it as part of its VPATH support.  See the autoconf manual "Limitations of
-# Make".
-#
-# Generated .h files which are used by gmp-impl.h are BUILT_SOURCES since
-# they must exist before anything can be compiled.
-#
-# Other generated .h files are also BUILT_SOURCES so as to get all the
-# build-system stuff over and done with at the start.  Also, dependencies on
-# the .h files are not properly expressed for the various objects that use
-# them.
-
 EXTRA_DIST += bootstrap.c
 
 fac_table.h: gen-fac$(EXEEXT_FOR_BUILD)
