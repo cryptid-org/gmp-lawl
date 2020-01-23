@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz mpq mpf rand
+SUBDIRS = mpn mpz mpq mpf
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -195,7 +195,7 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/lcm$U.lo mpz/lcm_ui$U.lo mpz/limbs_finish$U.lo			\
   mpz/limbs_modify$U.lo mpz/limbs_read$U.lo mpz/limbs_write$U.lo	\
   mpz/lucnum_ui$U.lo mpz/lucnum2_ui$U.lo				\
-  mpz/millerrabin$U.lo mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
+  mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
   mpz/mul_si$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo mpz/nextprime$U.lo			\
   mpz/out_raw$U.lo mpz/out_str$U.lo mpz/perfpow$U.lo mpz/perfsqr$U.lo	\
@@ -229,13 +229,6 @@ MPQ_OBJECTS = mpq/abs$U.lo mpq/aors$U.lo				\
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
 
-RANDOM_OBJECTS =							\
-  rand/rand$U.lo rand/randclr$U.lo rand/randdef$U.lo rand/randiset$U.lo	\
-  rand/randlc2s$U.lo rand/randlc2x$U.lo rand/randmt$U.lo		\
-  rand/randmts$U.lo rand/rands$U.lo rand/randsd$U.lo rand/randsdui$U.lo	\
-  rand/randbui$U.lo rand/randmui$U.lo
-
-
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
 # libraries like mpz/libmpz.la.  Or rather it works, but it ends up putting
 # PIC objects into libgmp.a if shared and static are both built.  (The PIC
@@ -257,8 +250,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
   $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
-  $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
-  $(RANDOM_OBJECTS)
+  $(MPN_OBJECTS) @mpn_objs_in_libgmp@
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)

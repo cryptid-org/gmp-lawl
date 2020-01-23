@@ -26457,7 +26457,7 @@ echo "define(\`__CONFIG_M4_INCLUDED__')" >> $gmp_configm4
 # FIXME: Upcoming version of autoconf/automake may not like broken lines.
 #        Right now automake isn't accepting the new AC_CONFIG_FILES scheme.
 
-ac_config_files="$ac_config_files Makefile mpf/Makefile mpn/Makefile mpq/Makefile mpz/Makefile rand/Makefile gmp.h:gmp-h.in"
+ac_config_files="$ac_config_files Makefile mpf/Makefile mpn/Makefile mpq/Makefile mpz/Makefile gmp.h:gmp-h.in"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -27586,7 +27586,6 @@ do
     "mpn/Makefile") CONFIG_FILES="$CONFIG_FILES mpn/Makefile" ;;
     "mpq/Makefile") CONFIG_FILES="$CONFIG_FILES mpq/Makefile" ;;
     "mpz/Makefile") CONFIG_FILES="$CONFIG_FILES mpz/Makefile" ;;
-    "rand/Makefile") CONFIG_FILES="$CONFIG_FILES rand/Makefile" ;;
     "gmp.h") CONFIG_FILES="$CONFIG_FILES gmp.h:gmp-h.in" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;

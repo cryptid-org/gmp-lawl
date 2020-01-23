@@ -147,8 +147,8 @@ am_libmpz_la_OBJECTS = 2fac_ui.lo add.lo add_ui.lo abs.lo aorsmul.lo \
 	iset_d.lo iset_si.lo iset_str.lo iset_ui.lo jacobi.lo \
 	kronsz.lo kronuz.lo kronzs.lo kronzu.lo lcm.lo lcm_ui.lo \
 	limbs_read.lo limbs_write.lo limbs_modify.lo limbs_finish.lo \
-	lucnum_ui.lo lucnum2_ui.lo mfac_uiui.lo millerrabin.lo mod.lo \
-	mul.lo mul_2exp.lo mul_si.lo mul_ui.lo n_pow_ui.lo neg.lo \
+	lucnum_ui.lo lucnum2_ui.lo mfac_uiui.lo mod.lo mul.lo \
+	mul_2exp.lo mul_si.lo mul_ui.lo n_pow_ui.lo neg.lo \
 	nextprime.lo oddfac_1.lo out_raw.lo out_str.lo perfpow.lo \
 	perfsqr.lo popcount.lo pow_ui.lo powm.lo powm_sec.lo \
 	powm_ui.lo pprime_p.lo prodlimbs.lo primorial_ui.lo random.lo \
@@ -410,7 +410,7 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   invert.c ior.c iset.c iset_d.c iset_si.c iset_str.c iset_ui.c \
   jacobi.c kronsz.c kronuz.c kronzs.c kronzu.c \
   lcm.c lcm_ui.c limbs_read.c limbs_write.c limbs_modify.c limbs_finish.c \
-  lucnum_ui.c lucnum2_ui.c mfac_uiui.c millerrabin.c \
+  lucnum_ui.c lucnum2_ui.c mfac_uiui.c \
   mod.c mul.c mul_2exp.c mul_si.c mul_ui.c n_pow_ui.c neg.c nextprime.c \
   oddfac_1.c \
   out_raw.c out_str.c perfpow.c perfsqr.c popcount.c pow_ui.c powm.c \
