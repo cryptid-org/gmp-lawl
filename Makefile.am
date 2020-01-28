@@ -110,7 +110,7 @@ LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE      = 5
 
 
-SUBDIRS = mpn mpz
+SUBDIRS = mpn mpz mpq mpf rand tune
 
 EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
@@ -142,6 +142,26 @@ DISTCLEANFILES = $(BUILT_SOURCES) config.m4 @gmp_srclinks@
 # Tell gmp.h it's building gmp, not an application, used by windows DLL stuff.
 AM_CPPFLAGS=-D__GMP_WITHIN_GMP
 
+
+MPF_OBJECTS = mpf/init$U.lo mpf/init2$U.lo mpf/inits$U.lo mpf/set$U.lo	    \
+  mpf/set_ui$U.lo mpf/set_si$U.lo mpf/set_str$U.lo mpf/set_d$U.lo	    \
+  mpf/set_z$U.lo mpf/iset$U.lo mpf/iset_ui$U.lo mpf/iset_si$U.lo	    \
+  mpf/iset_str$U.lo mpf/iset_d$U.lo mpf/clear$U.lo mpf/clears$U.lo	    \
+  mpf/get_str$U.lo mpf/dump$U.lo mpf/size$U.lo mpf/eq$U.lo mpf/reldiff$U.lo \
+  mpf/sqrt$U.lo mpf/random2$U.lo mpf/inp_str$U.lo mpf/out_str$U.lo	    \
+  mpf/add$U.lo mpf/add_ui$U.lo mpf/sub$U.lo mpf/sub_ui$U.lo mpf/ui_sub$U.lo \
+  mpf/mul$U.lo mpf/mul_ui$U.lo mpf/div$U.lo mpf/div_ui$U.lo mpf/cmp_z$U.lo  \
+  mpf/cmp$U.lo mpf/cmp_d$U.lo mpf/cmp_ui$U.lo mpf/cmp_si$U.lo		    \
+  mpf/mul_2exp$U.lo mpf/div_2exp$U.lo mpf/abs$U.lo mpf/neg$U.lo		    \
+  mpf/set_q$U.lo mpf/get_d$U.lo mpf/get_d_2exp$U.lo mpf/set_dfl_prec$U.lo   \
+  mpf/set_prc$U.lo mpf/set_prc_raw$U.lo mpf/get_dfl_prec$U.lo               \
+  mpf/get_prc$U.lo mpf/ui_div$U.lo mpf/sqrt_ui$U.lo                         \
+  mpf/ceilfloor$U.lo mpf/trunc$U.lo mpf/pow_ui$U.lo			    \
+  mpf/urandomb$U.lo mpf/swap$U.lo					    \
+  mpf/fits_sint$U.lo mpf/fits_slong$U.lo mpf/fits_sshort$U.lo		    \
+  mpf/fits_uint$U.lo mpf/fits_ulong$U.lo mpf/fits_ushort$U.lo		    \
+  mpf/get_si$U.lo mpf/get_ui$U.lo					    \
+  mpf/int_p$U.lo
 
 MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/aorsmul$U.lo mpz/aorsmul_i$U.lo mpz/and$U.lo mpz/array_init$U.lo	\
@@ -175,7 +195,7 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/lcm$U.lo mpz/lcm_ui$U.lo mpz/limbs_finish$U.lo			\
   mpz/limbs_modify$U.lo mpz/limbs_read$U.lo mpz/limbs_write$U.lo	\
   mpz/lucnum_ui$U.lo mpz/lucnum2_ui$U.lo				\
-  mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
+  mpz/millerrabin$U.lo mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
   mpz/mul_si$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo mpz/nextprime$U.lo			\
   mpz/out_raw$U.lo mpz/out_str$U.lo mpz/perfpow$U.lo mpz/perfsqr$U.lo	\
@@ -184,8 +204,8 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/pprime_p$U.lo mpz/random$U.lo mpz/random2$U.lo			\
   mpz/realloc$U.lo mpz/realloc2$U.lo mpz/remove$U.lo mpz/roinit_n$U.lo  \
   mpz/root$U.lo mpz/rootrem$U.lo mpz/rrandomb$U.lo mpz/scan0$U.lo	\
-  mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo		\
-  mpz/set_si$U.lo mpz/set_str$U.lo mpz/set_ui$U.lo	\
+  mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo mpz/set_f$U.lo		\
+  mpz/set_q$U.lo mpz/set_si$U.lo mpz/set_str$U.lo mpz/set_ui$U.lo	\
   mpz/setbit$U.lo							\
   mpz/size$U.lo mpz/sizeinbase$U.lo mpz/sqrt$U.lo			\
   mpz/sqrtrem$U.lo mpz/sub$U.lo mpz/sub_ui$U.lo mpz/swap$U.lo		\
@@ -195,7 +215,25 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo mpz/urandomb$U.lo	\
   mpz/urandomm$U.lo mpz/xor$U.lo
 
+MPQ_OBJECTS = mpq/abs$U.lo mpq/aors$U.lo				\
+  mpq/canonicalize$U.lo mpq/clear$U.lo mpq/clears$U.lo			\
+  mpq/cmp$U.lo mpq/cmp_si$U.lo mpq/cmp_ui$U.lo mpq/div$U.lo		\
+  mpq/get_d$U.lo mpq/get_den$U.lo mpq/get_num$U.lo mpq/get_str$U.lo	\
+  mpq/init$U.lo mpq/inits$U.lo mpq/inp_str$U.lo mpq/inv$U.lo		\
+  mpq/md_2exp$U.lo mpq/mul$U.lo mpq/neg$U.lo mpq/out_str$U.lo		\
+  mpq/set$U.lo mpq/set_den$U.lo mpq/set_num$U.lo			\
+  mpq/set_si$U.lo mpq/set_str$U.lo mpq/set_ui$U.lo			\
+  mpq/equal$U.lo mpq/set_z$U.lo mpq/set_d$U.lo				\
+  mpq/set_f$U.lo mpq/swap$U.lo
+
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
+
+
+RANDOM_OBJECTS =							\
+  rand/rand$U.lo rand/randclr$U.lo rand/randdef$U.lo rand/randiset$U.lo	\
+  rand/randlc2s$U.lo rand/randlc2x$U.lo rand/randmt$U.lo		\
+  rand/randmts$U.lo rand/rands$U.lo rand/randsd$U.lo rand/randsdui$U.lo	\
+  rand/randbui$U.lo rand/randmui$U.lo
 
 
 # In libtool 1.5 it doesn't work to build libgmp.la from the convenience
@@ -218,8 +256,9 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
   version.c nextprime.c primesieve.c
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
-  $(MPZ_OBJECTS)\
-  $(MPN_OBJECTS) @mpn_objs_in_libgmp@
+  $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
+  $(MPN_OBJECTS) @mpn_objs_in_libgmp@		\
+  $(RANDOM_OBJECTS)
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)
@@ -341,3 +380,47 @@ gen-psqr$(EXEEXT_FOR_BUILD): gen-psqr$(U_FOR_BUILD).c bootstrap.c
 	$(CC_FOR_BUILD) `test -f 'gen-psqr$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-psqr$(U_FOR_BUILD).c -o gen-psqr$(EXEEXT_FOR_BUILD) $(LIBM_FOR_BUILD)
 DISTCLEANFILES += gen-psqr$(EXEEXT_FOR_BUILD)
 EXTRA_DIST += gen-psqr.c
+
+# Distribute mini-gmp. Test sources copied by dist-hook.
+EXTRA_DIST += mini-gmp/README mini-gmp/mini-gmp.c mini-gmp/mini-gmp.h \
+	      mini-gmp/tests/Makefile mini-gmp/tests/run-tests
+
+# Avoid: CVS - cvs directories
+#        *~  - emacs backups
+#        .#* - cvs merge originals
+#
+# *~ and .#* only occur when a whole directory without it's own Makefile.am
+# is distributed, like "doc" or the mpn cpu subdirectories.
+#
+dist-hook:
+	-find $(distdir) \( -name CVS -type d \) -o -name "*~" -o -name ".#*" \
+		| xargs rm -rf
+	cp "$(srcdir)"/mini-gmp/tests/*.[ch] "$(distdir)/mini-gmp/tests"
+#	grep -F $(VERSION) $(srcdir)/Makefile.am \
+#		| grep -q "^# *$(VERSION) *$(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE) *$(LIBGMPXX_LT_CURRENT):$(LIBGMPXX_LT_REVISION):$(LIBGMPXX_LT_AGE)"
+#	test -z "`sed -n 's/^# *[0-9]*\.[0-9]*\.[0-9]* *\([0-9]*:[0-9]*:[0-9]*\) *\([0-9]*:[0-9]*:[0-9]*\) *\([0-9]*:[0-9]*:[0-9]*\).*/A\1\nB\2\nC\3/p' $(srcdir)/Makefile.am | grep -v 'A6:3:3\|B3:5:0\|C4:7:1' | sort | uniq -d`"
+
+.PHONY: check-mini-gmp clean-mini-gmp
+
+check-mini-gmp:
+	abs_srcdir="`cd $(srcdir) && pwd`" ; \
+	$(MKDIR_P) mini-gmp/tests \
+	&& cd mini-gmp/tests \
+	&& TEST_LIBRARY_PATH="../../.libs"  \
+	   $(MAKE) -f "$$abs_srcdir/mini-gmp/tests/Makefile" \
+		VPATH="$$abs_srcdir/mini-gmp/tests" \
+		srcdir="$$abs_srcdir/mini-gmp/tests" \
+		MINI_GMP_DIR="$$abs_srcdir/mini-gmp" \
+		LDFLAGS="-L../../.libs" \
+		LIBS="-lgmp -lm" \
+		CC="$(CC)" CFLAGS="$(CFLAGS)" CPPFLAGS="-I../.." check
+
+clean-mini-gmp:
+	if [ -d mini-gmp/tests ] ; then \
+	  abs_srcdir="`cd $(srcdir) && pwd`" ; \
+	  cd mini-gmp/tests \
+	  && $(MAKE) -f "$$abs_srcdir/mini-gmp/tests/Makefile" clean ; \
+	fi
+
+clean-local: clean-mini-gmp
+distclean-local: clean-mini-gmp
