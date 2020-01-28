@@ -4523,9 +4523,6 @@ struct gmp_snprintf_t {
 __GMP_DECLSPEC int __gmp_doprnt (const struct doprnt_funs_t *, void *, const char *, va_list);
 __GMP_DECLSPEC int __gmp_doprnt_integer (const struct doprnt_funs_t *, void *, const struct doprnt_params_t *, const char *);
 
-#define __gmp_doprnt_mpf __gmp_doprnt_mpf2
-__GMP_DECLSPEC int __gmp_doprnt_mpf (const struct doprnt_funs_t *, void *, const struct doprnt_params_t *, const char *, mpf_srcptr);
-
 __GMP_DECLSPEC int __gmp_replacement_vsnprintf (char *, size_t, const char *, va_list);
 #endif /* _GMP_H_HAVE_VA_LIST */
 

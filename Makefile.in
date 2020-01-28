@@ -232,8 +232,7 @@ am__uninstall_files_from_dir = { \
 am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)" \
 	"$(DESTDIR)$(includeexecdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-am__DEPENDENCIES_1 = $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS) \
-	$(MPN_OBJECTS)
+am__DEPENDENCIES_1 = $(MPZ_OBJECTS) $(MPQ_OBJECTS) $(MPN_OBJECTS)
 am_libgmp_la_OBJECTS = assert.lo compat.lo errno.lo extract-dbl.lo \
 	invalid.lo memory.lo mp_bpl.lo mp_clz_tab.lo mp_dv_tab.lo \
 	mp_minv_tab.lo mp_get_fns.lo mp_set_fns.lo version.lo \
@@ -565,7 +564,7 @@ LIBGMP_LT_AGE = 3
 LIBGMPXX_LT_CURRENT = 9
 LIBGMPXX_LT_REVISION = 2
 LIBGMPXX_LT_AGE = 5
-SUBDIRS = mpn mpz mpq mpf
+SUBDIRS = mpn mpz mpq
 
 # The "test -f" support for srcdir!=builddir is similar to the automake .c.o
 # etc rules, but with each foo.c explicitly, since $< is not portable
@@ -612,26 +611,6 @@ DISTCLEANFILES = $(BUILT_SOURCES) config.m4 @gmp_srclinks@ \
 
 # Tell gmp.h it's building gmp, not an application, used by windows DLL stuff.
 AM_CPPFLAGS = -D__GMP_WITHIN_GMP
-MPF_OBJECTS = mpf/init$U.lo mpf/init2$U.lo mpf/inits$U.lo mpf/set$U.lo	    \
-  mpf/set_ui$U.lo mpf/set_si$U.lo mpf/set_str$U.lo mpf/set_d$U.lo	    \
-  mpf/set_z$U.lo mpf/iset$U.lo mpf/iset_ui$U.lo mpf/iset_si$U.lo	    \
-  mpf/iset_str$U.lo mpf/iset_d$U.lo mpf/clear$U.lo mpf/clears$U.lo	    \
-  mpf/get_str$U.lo mpf/dump$U.lo mpf/size$U.lo mpf/eq$U.lo mpf/reldiff$U.lo \
-  mpf/sqrt$U.lo mpf/random2$U.lo mpf/inp_str$U.lo mpf/out_str$U.lo	    \
-  mpf/add$U.lo mpf/add_ui$U.lo mpf/sub$U.lo mpf/sub_ui$U.lo mpf/ui_sub$U.lo \
-  mpf/mul$U.lo mpf/mul_ui$U.lo mpf/div$U.lo mpf/div_ui$U.lo mpf/cmp_z$U.lo  \
-  mpf/cmp$U.lo mpf/cmp_d$U.lo mpf/cmp_ui$U.lo mpf/cmp_si$U.lo		    \
-  mpf/mul_2exp$U.lo mpf/div_2exp$U.lo mpf/abs$U.lo mpf/neg$U.lo		    \
-  mpf/set_q$U.lo mpf/get_d$U.lo mpf/get_d_2exp$U.lo mpf/set_dfl_prec$U.lo   \
-  mpf/set_prc$U.lo mpf/set_prc_raw$U.lo mpf/get_dfl_prec$U.lo               \
-  mpf/get_prc$U.lo mpf/ui_div$U.lo mpf/sqrt_ui$U.lo                         \
-  mpf/ceilfloor$U.lo mpf/trunc$U.lo mpf/pow_ui$U.lo			    \
-  mpf/urandomb$U.lo mpf/swap$U.lo					    \
-  mpf/fits_sint$U.lo mpf/fits_slong$U.lo mpf/fits_sshort$U.lo		    \
-  mpf/fits_uint$U.lo mpf/fits_ulong$U.lo mpf/fits_ushort$U.lo		    \
-  mpf/get_si$U.lo mpf/get_ui$U.lo					    \
-  mpf/int_p$U.lo
-
 MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/aorsmul$U.lo mpz/aorsmul_i$U.lo mpz/and$U.lo mpz/array_init$U.lo	\
   mpz/bin_ui$U.lo mpz/bin_uiui$U.lo					\
@@ -673,7 +652,7 @@ MPZ_OBJECTS = mpz/abs$U.lo mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/pprime_p$U.lo mpz/random$U.lo mpz/random2$U.lo			\
   mpz/realloc$U.lo mpz/realloc2$U.lo mpz/remove$U.lo mpz/roinit_n$U.lo  \
   mpz/root$U.lo mpz/rootrem$U.lo mpz/rrandomb$U.lo mpz/scan0$U.lo	\
-  mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo mpz/set_f$U.lo		\
+  mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo		\
   mpz/set_q$U.lo mpz/set_si$U.lo mpz/set_str$U.lo mpz/set_ui$U.lo	\
   mpz/setbit$U.lo							\
   mpz/size$U.lo mpz/sizeinbase$U.lo mpz/sqrt$U.lo			\
@@ -693,7 +672,7 @@ MPQ_OBJECTS = mpq/abs$U.lo mpq/aors$U.lo				\
   mpq/set$U.lo mpq/set_den$U.lo mpq/set_num$U.lo			\
   mpq/set_si$U.lo mpq/set_str$U.lo mpq/set_ui$U.lo			\
   mpq/equal$U.lo mpq/set_z$U.lo mpq/set_d$U.lo				\
-  mpq/set_f$U.lo mpq/swap$U.lo
+  mpq/swap$U.lo
 
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
@@ -717,7 +696,7 @@ libgmp_la_SOURCES = gmp-impl.h longlong.h				\
 
 EXTRA_libgmp_la_SOURCES = tal-debug.c tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
-  $(MPF_OBJECTS) $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
+  $(MPZ_OBJECTS) $(MPQ_OBJECTS)	\
   $(MPN_OBJECTS) @mpn_objs_in_libgmp@
 
 libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
