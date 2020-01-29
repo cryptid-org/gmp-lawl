@@ -3910,7 +3910,7 @@ GMP_FINISH
 
 AC_OUTPUT(Makefile							\
   mpf/Makefile mpn/Makefile mpq/Makefile				\
-  mpz/Makefile rand/Makefile \
+  mpz/Makefile \
   tune/Makefile						\
   gmp.h:gmp-h.in)
 
