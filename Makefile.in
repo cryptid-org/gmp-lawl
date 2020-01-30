@@ -245,13 +245,6 @@ am__v_lt_1 =
 libgmp_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(libgmp_la_LDFLAGS) $(LDFLAGS) -o $@
-am__DEPENDENCIES_2 = libgmp.la
-am_libgmpxx_la_OBJECTS = dummy.lo
-libgmpxx_la_OBJECTS = $(am_libgmpxx_la_OBJECTS)
-libgmpxx_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
-	$(CXXFLAGS) $(libgmpxx_la_LDFLAGS) $(LDFLAGS) -o $@
-@WANT_CXX_TRUE@am_libgmpxx_la_rpath = -rpath $(libdir)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -285,28 +278,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
-	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
-LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) \
-	$(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) \
-	$(AM_CXXFLAGS) $(CXXFLAGS)
-AM_V_CXX = $(am__v_CXX_@AM_V@)
-am__v_CXX_ = $(am__v_CXX_@AM_DEFAULT_V@)
-am__v_CXX_0 = @echo "  CXX     " $@;
-am__v_CXX_1 = 
-CXXLD = $(CXX)
-CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
-	$(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
-am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
-am__v_CXXLD_0 = @echo "  CXXLD   " $@;
-am__v_CXXLD_1 = 
-SOURCES = $(libgmp_la_SOURCES) $(EXTRA_libgmp_la_SOURCES) \
-	$(libgmpxx_la_SOURCES)
-DIST_SOURCES = $(libgmp_la_SOURCES) $(EXTRA_libgmp_la_SOURCES) \
-	$(libgmpxx_la_SOURCES)
+SOURCES = $(libgmp_la_SOURCES) $(EXTRA_libgmp_la_SOURCES)
+DIST_SOURCES = $(libgmp_la_SOURCES) $(EXTRA_libgmp_la_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -680,22 +653,11 @@ libgmp_la_LIBADD = $(libgmp_la_DEPENDENCIES)
 libgmp_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMP_LDFLAGS) \
   -version-info $(LIBGMP_LT_CURRENT):$(LIBGMP_LT_REVISION):$(LIBGMP_LT_AGE)
 
-
-# We need at least one .cc file in $(libgmpxx_la_SOURCES) so automake will
-# use $(CXXLINK) rather than the plain C $(LINK).  cxx/dummy.cc is that
-# file.
-@WANT_CXX_TRUE@GMPXX_LTLIBRARIES_OPTION = libgmpxx.la
-libgmpxx_la_SOURCES = cxx/dummy.cc
-libgmpxx_la_DEPENDENCIES = $(CXX_OBJECTS) libgmp.la
-libgmpxx_la_LIBADD = $(libgmpxx_la_DEPENDENCIES)
-libgmpxx_la_LDFLAGS = $(GMP_LDFLAGS) $(LIBGMPXX_LDFLAGS) \
-  -version-info $(LIBGMPXX_LT_CURRENT):$(LIBGMPXX_LT_REVISION):$(LIBGMPXX_LT_AGE)
-
 all: $(BUILT_SOURCES) config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
 .SUFFIXES:
-.SUFFIXES: .c .cc .lo .o .obj
+.SUFFIXES: .c .lo .o .obj
 am--refresh: Makefile
 	@:
 $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -785,9 +747,6 @@ clean-libLTLIBRARIES:
 libgmp.la: $(libgmp_la_OBJECTS) $(libgmp_la_DEPENDENCIES) $(EXTRA_libgmp_la_DEPENDENCIES) 
 	$(AM_V_CCLD)$(libgmp_la_LINK) -rpath $(libdir) $(libgmp_la_OBJECTS) $(libgmp_la_LIBADD) $(LIBS)
 
-libgmpxx.la: $(libgmpxx_la_OBJECTS) $(libgmpxx_la_DEPENDENCIES) $(EXTRA_libgmpxx_la_DEPENDENCIES) 
-	$(AM_V_CXXLD)$(libgmpxx_la_LINK) $(am_libgmpxx_la_rpath) $(libgmpxx_la_OBJECTS) $(libgmpxx_la_LIBADD) $(LIBS)
-
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -802,18 +761,6 @@ distclean-compile:
 
 .c.lo:
 	$(AM_V_CC)$(LTCOMPILE) -c -o $@ $<
-
-.cc.o:
-	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ $<
-
-.cc.obj:
-	$(AM_V_CXX)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-
-.cc.lo:
-	$(AM_V_CXX)$(LTCXXCOMPILE) -c -o $@ $<
-
-dummy.lo: cxx/dummy.cc
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o dummy.lo `test -f 'cxx/dummy.cc' || echo '$(srcdir)/'`cxx/dummy.cc
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -1229,8 +1176,7 @@ info: info-recursive
 info-am:
 
 install-data-am: install-includeHEADERS
-	@$(NORMAL_INSTALL)
-	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
+
 install-dvi: install-dvi-recursive
 
 install-dvi-am:
@@ -1281,7 +1227,7 @@ uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES \
 	uninstall-nodist_includeexecHEADERS
 
 .MAKE: $(am__recursive_targets) all check install install-am \
-	install-data-am install-strip
+	install-strip
 
 .PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
 	am--refresh check check-am clean clean-cscope clean-generic \
@@ -1292,11 +1238,10 @@ uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES \
 	distclean-generic distclean-hdr distclean-libtool \
 	distclean-local distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am \
-	install-data-hook install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am \
-	install-includeHEADERS install-info install-info-am \
-	install-libLTLIBRARIES install-man \
+	install install-am install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-html \
+	install-html-am install-includeHEADERS install-info \
+	install-info-am install-libLTLIBRARIES install-man \
 	install-nodist_includeexecHEADERS install-pdf install-pdf-am \
 	install-ps install-ps-am install-strip installcheck \
 	installcheck-am installdirs installdirs-am maintainer-clean \
@@ -1307,22 +1252,6 @@ uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES \
 
 .PRECIOUS: Makefile
 
-
-install-data-hook:
-	@echo ''
-	@echo '+-------------------------------------------------------------+'
-	@echo '| CAUTION:                                                    |'
-	@echo '|                                                             |'
-	@echo '| If you have not already run "make check", then we strongly  |'
-	@echo '| recommend you do so.                                        |'
-	@echo '|                                                             |'
-	@echo '| GMP has been carefully tested by its authors, but compilers |'
-	@echo '| are all too often released with serious bugs.  GMP tends to |'
-	@echo '| explore interesting corners in compilers and has hit bugs   |'
-	@echo '| on quite a few occasions.                                   |'
-	@echo '|                                                             |'
-	@echo '+-------------------------------------------------------------+'
-	@echo ''
 
 fac_table.h: gen-fac$(EXEEXT_FOR_BUILD)
 	./gen-fac $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >fac_table.h || (rm -f fac_table.h; exit 1)
