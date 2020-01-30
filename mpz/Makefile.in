@@ -153,9 +153,9 @@ am_libmpz_la_OBJECTS = 2fac_ui.lo add.lo add_ui.lo abs.lo aorsmul.lo \
 	pow_ui.lo powm.lo powm_sec.lo powm_ui.lo prodlimbs.lo \
 	primorial_ui.lo random.lo random2.lo realloc.lo realloc2.lo \
 	remove.lo roinit_n.lo root.lo rootrem.lo rrandomb.lo scan0.lo \
-	scan1.lo set.lo set_d.lo set_q.lo set_si.lo set_str.lo \
-	set_ui.lo setbit.lo size.lo sizeinbase.lo sqrt.lo sqrtrem.lo \
-	sub.lo sub_ui.lo swap.lo tdiv_ui.lo tdiv_q.lo tdiv_q_2exp.lo \
+	scan1.lo set.lo set_d.lo set_si.lo set_str.lo set_ui.lo \
+	setbit.lo size.lo sizeinbase.lo sqrt.lo sqrtrem.lo sub.lo \
+	sub_ui.lo swap.lo tdiv_ui.lo tdiv_q.lo tdiv_q_2exp.lo \
 	tdiv_q_ui.lo tdiv_qr.lo tdiv_qr_ui.lo tdiv_r.lo tdiv_r_2exp.lo \
 	tdiv_r_ui.lo tstbit.lo ui_pow_ui.lo ui_sub.lo urandomb.lo \
 	urandomm.lo xor.lo
@@ -417,7 +417,7 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   out_raw.c out_str.c perfpow.c perfsqr.c popcount.c pow_ui.c powm.c \
   powm_sec.c powm_ui.c prodlimbs.c primorial_ui.c random.c random2.c \
   realloc.c realloc2.c remove.c roinit_n.c root.c rootrem.c rrandomb.c \
-  scan0.c scan1.c set.c set_d.c set_q.c set_si.c set_str.c \
+  scan0.c scan1.c set.c set_d.c set_si.c set_str.c \
   set_ui.c setbit.c size.c sizeinbase.c sqrt.c sqrtrem.c sub.c sub_ui.c \
   swap.c tdiv_ui.c tdiv_q.c tdiv_q_2exp.c tdiv_q_ui.c tdiv_qr.c \
   tdiv_qr_ui.c tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \

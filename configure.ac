@@ -3909,7 +3909,7 @@ GMP_FINISH
 #        Right now automake isn't accepting the new AC_CONFIG_FILES scheme.
 
 AC_OUTPUT(Makefile							\
-  mpn/Makefile mpq/Makefile				\
+  mpn/Makefile				\
   mpz/Makefile \
   tune/Makefile						\
   gmp.h:gmp-h.in)
