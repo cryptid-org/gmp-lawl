@@ -116,11 +116,6 @@ EXTRA_DIST = configfsf.guess configfsf.sub .gdbinit INSTALL.autoconf \
 	     COPYING.LESSERv3 COPYINGv2 COPYINGv3
 
 
-if WANT_CXX
-GMPXX_HEADERS_OPTION = gmpxx.h
-endif
-EXTRA_DIST += gmpxx.h
-
 # gmp.h and mp.h are architecture dependent, mainly since they encode the
 # limb size used in libgmp.  For that reason they belong under $exec_prefix
 # not $prefix, strictly speaking.
