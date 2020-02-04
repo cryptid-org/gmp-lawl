@@ -1077,20 +1077,6 @@ if test -z "$MPN_PATH"; then
   path="$add_path $path"
 fi
 
-# For a nail build, also look in "nails" subdirectories.
-#
-if test $GMP_NAIL_BITS != 0 && test -z "$MPN_PATH"; then
-  new_path=
-  for i in $path; do
-    case $i in
-    generic) new_path="$new_path $i" ;;
-    *)       new_path="$new_path $i/nails $i" ;;
-    esac
-  done
-  path=$new_path
-fi
-
-
 # Put all directories into CPUVEC_list so as to get a full set of
 # CPUVEC_SETUP_$tmp_suffix defines into config.h, even if some of them are
 # empty because mmx and/or sse2 had to be dropped.
@@ -1164,22 +1150,6 @@ CL_AS_NOEXECSTACK
 GMP_PROG_AR
 GMP_PROG_NM
 
-case $host in
-  # FIXME: On AIX 3 and 4, $libname.a is included in libtool
-  # $library_names_spec, so libgmp.a becomes a symlink to libgmp.so, making
-  # it impossible to build shared and static libraries simultaneously.
-  # Disable shared libraries by default, but let the user override with
-  # --enable-shared --disable-static.
-  #
-  # FIXME: This $libname.a problem looks like it might apply to *-*-amigaos*
-  # and *-*-os2* too, but wait for someone to test this before worrying
-  # about it.  If there is a problem then of course libtool is the right
-  # place to fix it.
-  #
-  [*-*-aix[34]*])
-    if test -z "$enable_shared"; then enable_shared=no; fi ;;
-esac
-
 
 # Configs for Windows DLLs.
 
@@ -1245,22 +1215,6 @@ esac
 #
 if test -z "$CONFIG_SHELL"; then
   CONFIG_SHELL=$SHELL
-fi
-
-# Enable CXX in libtool only if we want it, and never enable GCJ, nor RC on
-# mingw and cygwin.  Under --disable-cxx this avoids some error messages
-# from libtool arising from the fact we didn't actually run AC_PROG_CXX.
-# Notice that any user-supplied --with-tags setting takes precedence.
-#
-# FIXME: Is this the right way to get this effect?  Very possibly not, but
-# the current _LT_AC_TAGCONFIG doesn't really suggest an alternative.
-#
-if test "${with_tags+set}" != set; then
-  if test $want_cxx = yes; then
-    with_tags=CXX
-  else
-    with_tags=
-  fi
 fi
 
 # The dead hand of AC_REQUIRE makes AC_PROG_LIBTOOL expand and execute
@@ -1475,22 +1429,6 @@ AC_CHECK_MEMBER(struct pst_processor.psp_iticksperclktick,
 [Define to 1 if <sys/pstat.h> `struct pst_processor' exists
 and contains `psp_iticksperclktick'.])],,
                 [#include <sys/pstat.h>])
-
-# C++ tests, when required
-#
-if test $enable_cxx = yes; then
-  AC_LANG_PUSH(C++)
-
-  # Reasons for testing:
-  #   <sstream> - not in g++ 2.95.2
-  #   std::locale - not in g++ 2.95.4
-  #
-  AC_CHECK_HEADERS([sstream])
-  AC_CHECK_TYPES([std::locale],,,[#include <locale>])
-
-  AC_LANG_POP(C++)
-fi
-
 
 # Pick the correct source files in $path and link them to mpn/.
 # $gmp_mpn_functions lists all functions we need.

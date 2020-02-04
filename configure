@@ -2280,151 +2280,6 @@ $as_echo "$ac_res" >&6; }
 
 } # ac_fn_c_check_member
 
-# ac_fn_cxx_check_header_mongrel LINENO HEADER VAR INCLUDES
-# ---------------------------------------------------------
-# Tests whether HEADER exists, giving a warning if it cannot be compiled using
-# the include files in INCLUDES and setting the cache variable VAR
-# accordingly.
-ac_fn_cxx_check_header_mongrel ()
-{
-  as_lineno=${as_lineno-"$1"} as_lineno_stack=as_lineno_stack=$as_lineno_stack
-  if eval \${$3+:} false; then :
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $2" >&5
-$as_echo_n "checking for $2... " >&6; }
-if eval \${$3+:} false; then :
-  $as_echo_n "(cached) " >&6
-fi
-eval ac_res=\$$3
-	       { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_res" >&5
-$as_echo "$ac_res" >&6; }
-else
-  # Is the header compilable?
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking $2 usability" >&5
-$as_echo_n "checking $2 usability... " >&6; }
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-$4
-#include <$2>
-_ACEOF
-if ac_fn_cxx_try_compile "$LINENO"; then :
-  ac_header_compiler=yes
-else
-  ac_header_compiler=no
-fi
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_header_compiler" >&5
-$as_echo "$ac_header_compiler" >&6; }
-
-# Is the header present?
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking $2 presence" >&5
-$as_echo_n "checking $2 presence... " >&6; }
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-#include <$2>
-_ACEOF
-if ac_fn_cxx_try_cpp "$LINENO"; then :
-  ac_header_preproc=yes
-else
-  ac_header_preproc=no
-fi
-rm -f conftest.err conftest.i conftest.$ac_ext
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_header_preproc" >&5
-$as_echo "$ac_header_preproc" >&6; }
-
-# So?  What about this header?
-case $ac_header_compiler:$ac_header_preproc:$ac_cxx_preproc_warn_flag in #((
-  yes:no: )
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2: accepted by the compiler, rejected by the preprocessor!" >&5
-$as_echo "$as_me: WARNING: $2: accepted by the compiler, rejected by the preprocessor!" >&2;}
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2: proceeding with the compiler's result" >&5
-$as_echo "$as_me: WARNING: $2: proceeding with the compiler's result" >&2;}
-    ;;
-  no:yes:* )
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2: present but cannot be compiled" >&5
-$as_echo "$as_me: WARNING: $2: present but cannot be compiled" >&2;}
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2:     check for missing prerequisite headers?" >&5
-$as_echo "$as_me: WARNING: $2:     check for missing prerequisite headers?" >&2;}
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2: see the Autoconf documentation" >&5
-$as_echo "$as_me: WARNING: $2: see the Autoconf documentation" >&2;}
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2:     section \"Present But Cannot Be Compiled\"" >&5
-$as_echo "$as_me: WARNING: $2:     section \"Present But Cannot Be Compiled\"" >&2;}
-    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: $2: proceeding with the compiler's result" >&5
-$as_echo "$as_me: WARNING: $2: proceeding with the compiler's result" >&2;}
-( $as_echo "## ssssssssssssssssssssssssssssssssss ##
-## Report this to gmp-bugs@gmplib.org ##
-## ssssssssssssssssssssssssssssssssss ##"
-     ) | sed "s/^/$as_me: WARNING:     /" >&2
-    ;;
-esac
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $2" >&5
-$as_echo_n "checking for $2... " >&6; }
-if eval \${$3+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  eval "$3=\$ac_header_compiler"
-fi
-eval ac_res=\$$3
-	       { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_res" >&5
-$as_echo "$ac_res" >&6; }
-fi
-  eval $as_lineno_stack; ${as_lineno_stack:+:} unset as_lineno
-
-} # ac_fn_cxx_check_header_mongrel
-
-# ac_fn_cxx_check_type LINENO TYPE VAR INCLUDES
-# ---------------------------------------------
-# Tests whether TYPE exists after having included INCLUDES, setting cache
-# variable VAR accordingly.
-ac_fn_cxx_check_type ()
-{
-  as_lineno=${as_lineno-"$1"} as_lineno_stack=as_lineno_stack=$as_lineno_stack
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $2" >&5
-$as_echo_n "checking for $2... " >&6; }
-if eval \${$3+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  eval "$3=no"
-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-$4
-int
-main ()
-{
-if (sizeof ($2))
-	 return 0;
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_cxx_try_compile "$LINENO"; then :
-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-$4
-int
-main ()
-{
-if (sizeof (($2)))
-	    return 0;
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_cxx_try_compile "$LINENO"; then :
-
-else
-  eval "$3=yes"
-fi
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-fi
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-fi
-eval ac_res=\$$3
-	       { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_res" >&5
-$as_echo "$ac_res" >&6; }
-  eval $as_lineno_stack; ${as_lineno_stack:+:} unset as_lineno
-
-} # ac_fn_cxx_check_type
-
 # ac_fn_c_compute_int LINENO EXPR VAR INCLUDES
 # --------------------------------------------
 # Tries to find the compile-time value of EXPR in a program that includes
@@ -8061,20 +7916,6 @@ if test -z "$MPN_PATH"; then
   path="$add_path $path"
 fi
 
-# For a nail build, also look in "nails" subdirectories.
-#
-if test $GMP_NAIL_BITS != 0 && test -z "$MPN_PATH"; then
-  new_path=
-  for i in $path; do
-    case $i in
-    generic) new_path="$new_path $i" ;;
-    *)       new_path="$new_path $i/nails $i" ;;
-    esac
-  done
-  path=$new_path
-fi
-
-
 # Put all directories into CPUVEC_list so as to get a full set of
 # CPUVEC_SETUP_$tmp_suffix defines into config.h, even if some of them are
 # empty because mmx and/or sse2 had to be dropped.
@@ -9050,22 +8891,6 @@ $as_echo "$nmflags" >&6; }
 fi
 
 
-case $host in
-  # FIXME: On AIX 3 and 4, $libname.a is included in libtool
-  # $library_names_spec, so libgmp.a becomes a symlink to libgmp.so, making
-  # it impossible to build shared and static libraries simultaneously.
-  # Disable shared libraries by default, but let the user override with
-  # --enable-shared --disable-static.
-  #
-  # FIXME: This $libname.a problem looks like it might apply to *-*-amigaos*
-  # and *-*-os2* too, but wait for someone to test this before worrying
-  # about it.  If there is a problem then of course libtool is the right
-  # place to fix it.
-  #
-  *-*-aix[34]*)
-    if test -z "$enable_shared"; then enable_shared=no; fi ;;
-esac
-
 
 # Configs for Windows DLLs.
 
@@ -9434,22 +9259,6 @@ esac
 #
 if test -z "$CONFIG_SHELL"; then
   CONFIG_SHELL=$SHELL
-fi
-
-# Enable CXX in libtool only if we want it, and never enable GCJ, nor RC on
-# mingw and cygwin.  Under --disable-cxx this avoids some error messages
-# from libtool arising from the fact we didn't actually run AC_PROG_CXX.
-# Notice that any user-supplied --with-tags setting takes precedence.
-#
-# FIXME: Is this the right way to get this effect?  Very possibly not, but
-# the current _LT_AC_TAGCONFIG doesn't really suggest an alternative.
-#
-if test "${with_tags+set}" != set; then
-  if test $want_cxx = yes; then
-    with_tags=CXX
-  else
-    with_tags=
-  fi
 fi
 
 # The dead hand of AC_REQUIRE makes AC_PROG_LIBTOOL expand and execute
@@ -22117,54 +21926,6 @@ ac_fn_c_check_member "$LINENO" "struct pst_processor" "psp_iticksperclktick" "ac
 if test "x$ac_cv_member_struct_pst_processor_psp_iticksperclktick" = xyes; then :
 
 $as_echo "#define HAVE_PSP_ITICKSPERCLKTICK 1" >>confdefs.h
-
-fi
-
-
-# C++ tests, when required
-#
-if test $enable_cxx = yes; then
-  ac_ext=cpp
-ac_cpp='$CXXCPP $CPPFLAGS'
-ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
-ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
-ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
-
-
-  # Reasons for testing:
-  #   <sstream> - not in g++ 2.95.2
-  #   std::locale - not in g++ 2.95.4
-  #
-
-for ac_header in sstream
-do :
-  ac_fn_cxx_check_header_mongrel "$LINENO" "sstream" "ac_cv_header_sstream" "$ac_includes_default"
-if test "x$ac_cv_header_sstream" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_SSTREAM 1
-_ACEOF
-
-fi
-
-done
-
-  ac_fn_cxx_check_type "$LINENO" "std::locale" "ac_cv_type_std__locale" "#include <locale>
-"
-if test "x$ac_cv_type_std__locale" = xyes; then :
-
-cat >>confdefs.h <<_ACEOF
-#define HAVE_STD__LOCALE 1
-_ACEOF
-
-
-fi
-
-
-  ac_ext=c
-ac_cpp='$CPP $CPPFLAGS'
-ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
-ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
-ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 fi
 
