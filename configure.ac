@@ -3406,7 +3406,6 @@ GMP_FINISH
 AC_OUTPUT(Makefile							\
   mpn/Makefile				\
   mpz/Makefile \
-  tune/Makefile						\
   gmp.h:gmp-h.in)
 
 AC_MSG_NOTICE([summary of build options:
