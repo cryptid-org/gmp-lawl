@@ -1054,51 +1054,6 @@ test -n "$CCAS" || CCAS="$CC -c"
 AC_SUBST(CCAS)
 
 
-# The C++ compiler, if desired.
-want_cxx=no
-if test $enable_cxx != no; then
-  test_CXXFLAGS=${CXXFLAGS+set}
-  AC_PROG_CXX
-
-  echo "CXXFLAGS chosen by autoconf: $CXXFLAGS" >&AC_FD_CC
-  cxxflags_ac_prog_cxx=$CXXFLAGS
-  cxxflags_list=ac_prog_cxx
-
-  # If the user didn't specify $CXXFLAGS, then try $CFLAGS, with -g removed
-  # if AC_PROG_CXX thinks that doesn't work.  $CFLAGS stands a good chance
-  # of working, eg. on a GNU system where CC=gcc and CXX=g++.
-  #
-  if test "$test_CXXFLAGS" != set; then
-    cxxflags_cflags=$CFLAGS
-    cxxflags_list="cflags $cxxflags_list"
-    if test "$ac_prog_cxx_g" = no; then
-      cxxflags_cflags=`echo "$cxxflags_cflags" | sed -e 's/ -g //' -e 's/^-g //' -e 's/ -g$//'`
-    fi
-  fi
-
-  # See if the C++ compiler works.  If the user specified CXXFLAGS then all
-  # we're doing is checking whether AC_PROG_CXX succeeded, since it doesn't
-  # give a fatal error, just leaves CXX set to a default g++.  If on the
-  # other hand the user didn't specify CXXFLAGS then we get to try here our
-  # $cxxflags_list alternatives.
-  #
-  # Automake includes $CPPFLAGS in a C++ compile, so we do the same here.
-  #
-  for cxxflags_choice in $cxxflags_list; do
-    eval CXXFLAGS=\"\$cxxflags_$cxxflags_choice\"
-    GMP_PROG_CXX_WORKS($CXX $CPPFLAGS $CXXFLAGS,
-      [want_cxx=yes
-      break])
-  done
-
-  # If --enable-cxx=yes but a C++ compiler can't be found, then abort.
-  if test $want_cxx = no && test $enable_cxx = yes; then
-    AC_MSG_ERROR([C++ compiler not available, see config.log for details])
-  fi
-fi
-
-AM_CONDITIONAL(WANT_CXX, test $want_cxx = yes)
-
 # FIXME: We're not interested in CXXCPP for ourselves, but if we don't do it
 # here then AC_PROG_LIBTOOL will AC_REQUIRE it (via _LT_AC_TAGCONFIG) and
 # hence execute it unconditionally, and that will fail if there's no C++

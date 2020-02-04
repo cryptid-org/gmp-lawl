@@ -704,8 +704,6 @@ ASMFLAGS
 EGREP
 GREP
 CXXCPP
-WANT_CXX_FALSE
-WANT_CXX_TRUE
 ac_ct_CXX
 CXXFLAGS
 CXX
@@ -7501,10 +7499,12 @@ test -n "$CCAS" || CCAS="$CC -c"
 
 
 
-# The C++ compiler, if desired.
-want_cxx=no
-if test $enable_cxx != no; then
-  test_CXXFLAGS=${CXXFLAGS+set}
+# FIXME: We're not interested in CXXCPP for ourselves, but if we don't do it
+# here then AC_PROG_LIBTOOL will AC_REQUIRE it (via _LT_AC_TAGCONFIG) and
+# hence execute it unconditionally, and that will fail if there's no C++
+# compiler (and no generic /lib/cpp).
+#
+if test $want_cxx = yes; then
   ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -7762,198 +7762,7 @@ ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
-
-  echo "CXXFLAGS chosen by autoconf: $CXXFLAGS" >&5
-  cxxflags_ac_prog_cxx=$CXXFLAGS
-  cxxflags_list=ac_prog_cxx
-
-  # If the user didn't specify $CXXFLAGS, then try $CFLAGS, with -g removed
-  # if AC_PROG_CXX thinks that doesn't work.  $CFLAGS stands a good chance
-  # of working, eg. on a GNU system where CC=gcc and CXX=g++.
-  #
-  if test "$test_CXXFLAGS" != set; then
-    cxxflags_cflags=$CFLAGS
-    cxxflags_list="cflags $cxxflags_list"
-    if test "$ac_prog_cxx_g" = no; then
-      cxxflags_cflags=`echo "$cxxflags_cflags" | sed -e 's/ -g //' -e 's/^-g //' -e 's/ -g$//'`
-    fi
-  fi
-
-  # See if the C++ compiler works.  If the user specified CXXFLAGS then all
-  # we're doing is checking whether AC_PROG_CXX succeeded, since it doesn't
-  # give a fatal error, just leaves CXX set to a default g++.  If on the
-  # other hand the user didn't specify CXXFLAGS then we get to try here our
-  # $cxxflags_list alternatives.
-  #
-  # Automake includes $CPPFLAGS in a C++ compile, so we do the same here.
-  #
-  for cxxflags_choice in $cxxflags_list; do
-    eval CXXFLAGS=\"\$cxxflags_$cxxflags_choice\"
-    { $as_echo "$as_me:${as_lineno-$LINENO}: checking C++ compiler $CXX $CPPFLAGS $CXXFLAGS" >&5
-$as_echo_n "checking C++ compiler $CXX $CPPFLAGS $CXXFLAGS... " >&6; }
-gmp_prog_cxx_works=yes
-
-# start with a plain "main()", then go on to further checks
-if test "$gmp_prog_cxx_works" = yes; then
-  # remove anything that might look like compiler output to our "||" expression
-  rm -f conftest* a.out b.out a.exe a_out.exe
-  cat >conftest.cc <<EOF
-
-int main (void) { return 0; }
-EOF
-  echo "Test compile: " >&5
-  gmp_cxxcompile="$CXX $CPPFLAGS $CXXFLAGS conftest.cc >&5"
-  if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$gmp_cxxcompile\""; } >&5
-  (eval $gmp_cxxcompile) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-    if test "$cross_compiling" = no; then
-      if { ac_try='./a.out || ./b.out || ./a.exe || ./a_out.exe || ./conftest'
-  { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
-  (eval $ac_try) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; }; then :;
-      else
-        gmp_prog_cxx_works="no, program does not run"
-      fi
-    fi
-  else
-    gmp_prog_cxx_works="no"
-  fi
-  case $gmp_prog_cxx_works in
-    no*)
-      echo "failed program was:" >&5
-      cat conftest.cc >&5
-      ;;
-  esac
-  rm -f conftest* a.out b.out a.exe a_out.exe
-fi
-
-
-if test "$gmp_prog_cxx_works" = yes; then
-  # remove anything that might look like compiler output to our "||" expression
-  rm -f conftest* a.out b.out a.exe a_out.exe
-  cat >conftest.cc <<EOF
-namespace foo { }
-using namespace foo;
-
-int main (void) { return 0; }
-EOF
-  echo "Test compile: namespace" >&5
-  gmp_cxxcompile="$CXX $CPPFLAGS $CXXFLAGS conftest.cc >&5"
-  if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$gmp_cxxcompile\""; } >&5
-  (eval $gmp_cxxcompile) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-    if test "$cross_compiling" = no; then
-      if { ac_try='./a.out || ./b.out || ./a.exe || ./a_out.exe || ./conftest'
-  { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
-  (eval $ac_try) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; }; then :;
-      else
-        gmp_prog_cxx_works="no, namespace, program does not run"
-      fi
-    fi
-  else
-    gmp_prog_cxx_works="no, namespace"
-  fi
-  case $gmp_prog_cxx_works in
-    no*)
-      echo "failed program was:" >&5
-      cat conftest.cc >&5
-      ;;
-  esac
-  rm -f conftest* a.out b.out a.exe a_out.exe
-fi
-
-
-# GMP requires the standard C++ iostream classes
-if test "$gmp_prog_cxx_works" = yes; then
-  # remove anything that might look like compiler output to our "||" expression
-  rm -f conftest* a.out b.out a.exe a_out.exe
-  cat >conftest.cc <<EOF
-/* This test rejects g++ 2.7.2 which doesn't have <iostream>, only a
-    pre-standard iostream.h. */
-#include <iostream>
-
-/* This test rejects OSF 5.1 Compaq C++ in its default pre-standard iostream
-   mode, since that mode puts cout in the global namespace, not "std".  */
-void someoutput (void) { std::cout << 123; }
-
-int main (void) { return 0; }
-EOF
-  echo "Test compile: std iostream" >&5
-  gmp_cxxcompile="$CXX $CPPFLAGS $CXXFLAGS conftest.cc >&5"
-  if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$gmp_cxxcompile\""; } >&5
-  (eval $gmp_cxxcompile) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-    if test "$cross_compiling" = no; then
-      if { ac_try='./a.out || ./b.out || ./a.exe || ./a_out.exe || ./conftest'
-  { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
-  (eval $ac_try) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; }; then :;
-      else
-        gmp_prog_cxx_works="no, std iostream, program does not run"
-      fi
-    fi
-  else
-    gmp_prog_cxx_works="no, std iostream"
-  fi
-  case $gmp_prog_cxx_works in
-    no*)
-      echo "failed program was:" >&5
-      cat conftest.cc >&5
-      ;;
-  esac
-  rm -f conftest* a.out b.out a.exe a_out.exe
-fi
-
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $gmp_prog_cxx_works" >&5
-$as_echo "$gmp_prog_cxx_works" >&6; }
-case $gmp_prog_cxx_works in
-  yes)
-    want_cxx=yes
-      break
-    ;;
-  *)
-
-    ;;
-esac
-
-  done
-
-  # If --enable-cxx=yes but a C++ compiler can't be found, then abort.
-  if test $want_cxx = no && test $enable_cxx = yes; then
-    as_fn_error $? "C++ compiler not available, see config.log for details" "$LINENO" 5
-  fi
-fi
-
- if test $want_cxx = yes; then
-  WANT_CXX_TRUE=
-  WANT_CXX_FALSE='#'
-else
-  WANT_CXX_TRUE='#'
-  WANT_CXX_FALSE=
-fi
-
-
-# FIXME: We're not interested in CXXCPP for ourselves, but if we don't do it
-# here then AC_PROG_LIBTOOL will AC_REQUIRE it (via _LT_AC_TAGCONFIG) and
-# hence execute it unconditionally, and that will fail if there's no C++
-# compiler (and no generic /lib/cpp).
-#
-if test $want_cxx = yes; then
-  ac_ext=cpp
+ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
@@ -23066,10 +22875,6 @@ fi
 
 if test -z "${MAINTAINER_MODE_TRUE}" && test -z "${MAINTAINER_MODE_FALSE}"; then
   as_fn_error $? "conditional \"MAINTAINER_MODE\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${WANT_CXX_TRUE}" && test -z "${WANT_CXX_FALSE}"; then
-  as_fn_error $? "conditional \"WANT_CXX\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ENABLE_STATIC_TRUE}" && test -z "${ENABLE_STATIC_FALSE}"; then
