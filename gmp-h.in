@@ -430,11 +430,6 @@ typedef __mpz_struct *mpz_ptr;
 #endif
 
 
-#if defined (__cplusplus)
-extern "C" {
-using std::FILE;
-#endif
-
 #define mp_set_memory_functions __gmp_set_memory_functions
 __GMP_DECLSPEC void mp_set_memory_functions (void *(*) (size_t),
 				      void *(*) (void *, size_t, size_t),
@@ -1729,14 +1724,6 @@ mpn_neg (mp_ptr __gmp_rp, mp_srcptr __gmp_up, mp_size_t __gmp_n)
    allowed.  */
 #define mpz_odd_p(z)   (((z)->_mp_size != 0) & __GMP_CAST (int, (z)->_mp_d[0]))
 #define mpz_even_p(z)  (! mpz_odd_p (z))
-
-
-/**************** C++ routines ****************/
-
-#ifdef __cplusplus
-__GMP_DECLSPEC_XX std::ostream& operator<< (std::ostream &, mpz_srcptr);
-__GMP_DECLSPEC_XX std::istream& operator>> (std::istream &, mpz_ptr);
-#endif
 
 
 /* Source-level compatibility with GMP 2 and earlier. */
