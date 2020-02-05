@@ -462,15 +462,6 @@ __GMP_DECLSPEC void mpz_add (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_add_ui __gmpz_add_ui
 __GMP_DECLSPEC void mpz_add_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
-#define mpz_addmul __gmpz_addmul
-__GMP_DECLSPEC void mpz_addmul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_addmul_ui __gmpz_addmul_ui
-__GMP_DECLSPEC void mpz_addmul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_and __gmpz_and
-__GMP_DECLSPEC void mpz_and (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
 #define mpz_array_init __gmpz_array_init
 __GMP_DECLSPEC void mpz_array_init (mpz_ptr, mp_size_t, mp_size_t);
 
@@ -859,12 +850,6 @@ __GMP_DECLSPEC void mpz_sub_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
 #define mpz_ui_sub __gmpz_ui_sub
 __GMP_DECLSPEC void mpz_ui_sub (mpz_ptr, unsigned long int, mpz_srcptr);
-
-#define mpz_submul __gmpz_submul
-__GMP_DECLSPEC void mpz_submul (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_submul_ui __gmpz_submul_ui
-__GMP_DECLSPEC void mpz_submul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
 #define mpz_swap __gmpz_swap
 __GMP_DECLSPEC void mpz_swap (mpz_ptr, mpz_ptr) __GMP_NOTHROW;
