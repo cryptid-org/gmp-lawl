@@ -141,10 +141,8 @@ AM_CPPFLAGS=-D__GMP_WITHIN_GMP
 MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/cdiv_q$U.lo mpz/cdiv_q_ui$U.lo					\
   mpz/cfdiv_q_2exp$U.lo		\
-  mpz/clear$U.lo mpz/clears$U.lo mpz/clrbit$U.lo			\
-  mpz/cmp$U.lo mpz/cmp_d$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
-  mpz/com$U.lo mpz/combit$U.lo						\
-  mpz/cong$U.lo mpz/cong_2exp$U.lo mpz/cong_ui$U.lo			\
+  mpz/clear$U.lo mpz/clears$U.lo		\
+  mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
   mpz/divexact$U.lo mpz/divegcd$U.lo mpz/dive_ui$U.lo			\
   mpz/divis$U.lo mpz/divis_ui$U.lo mpz/divis_2exp$U.lo mpz/dump$U.lo	\
   mpz/export$U.lo 			\
