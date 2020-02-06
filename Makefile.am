@@ -145,14 +145,12 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
   mpz/divexact$U.lo mpz/dive_ui$U.lo			\
   mpz/oddfac_1$U.lo mpz/prodlimbs$U.lo	\
-  mpz/fdiv_q_ui$U.lo mpz/fdiv_r_ui$U.lo mpz/gcd$U.lo			\
-  mpz/gcd_ui$U.lo mpz/gcdext$U.lo mpz/get_d$U.lo mpz/get_d_2exp$U.lo	\
-  mpz/get_si$U.lo mpz/get_str$U.lo mpz/get_ui$U.lo mpz/getlimbn$U.lo	\
-  mpz/import$U.lo mpz/init$U.lo mpz/init2$U.lo mpz/inits$U.lo		\
+  mpz/fdiv_q_ui$U.lo mpz/fdiv_r_ui$U.lo 	\
+  mpz/gcdext$U.lo mpz/get_str$U.lo mpz/get_ui$U.lo mpz/getlimbn$U.lo	\
+  mpz/import$U.lo mpz/init$U.lo mpz/inits$U.lo		\
   mpz/invert$U.lo			\
   mpz/iset$U.lo mpz/iset_d$U.lo mpz/iset_si$U.lo		\
   mpz/iset_str$U.lo mpz/iset_ui$U.lo \
-  mpz/lcm$U.lo mpz/lcm_ui$U.lo \
   mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
   mpz/mul_si$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo		\
