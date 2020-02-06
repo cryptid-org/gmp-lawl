@@ -39,7 +39,7 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   cfdiv_q_2exp.c \
   clear.c clears.c \
   cmp.c cmp_si.c cmp_ui.c \
-  divexact.c divegcd.c dive_ui.c divis.c divis_ui.c divis_2exp.c \
+  divexact.c divegcd.c dive_ui.c  \
   dump.c export.c fac_ui.c fdiv_q.c fdiv_q_ui.c \
   fdiv_qr.c fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
   gcd.c gcd_ui.c gcdext.c get_d.c get_d_2exp.c get_si.c \
