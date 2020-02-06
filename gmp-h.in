@@ -504,17 +504,11 @@ __GMP_DECLSPEC void mpz_fac_ui (mpz_ptr, unsigned long int);
 #define mpz_primorial_ui __gmpz_primorial_ui
 __GMP_DECLSPEC void mpz_primorial_ui (mpz_ptr, unsigned long int);
 
-#define mpz_fdiv_q __gmpz_fdiv_q
-__GMP_DECLSPEC void mpz_fdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
 #define mpz_fdiv_q_2exp __gmpz_fdiv_q_2exp
 __GMP_DECLSPEC void mpz_fdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
 
 #define mpz_fdiv_q_ui __gmpz_fdiv_q_ui
 __GMP_DECLSPEC unsigned long int mpz_fdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
-#define mpz_fdiv_qr __gmpz_fdiv_qr
-__GMP_DECLSPEC void mpz_fdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
 
 #define mpz_fdiv_qr_ui __gmpz_fdiv_qr_ui
 __GMP_DECLSPEC unsigned long int mpz_fdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
@@ -711,20 +705,11 @@ __GMP_DECLSPEC void mpz_swap (mpz_ptr, mpz_ptr) __GMP_NOTHROW;
 #define mpz_tdiv_ui __gmpz_tdiv_ui
 __GMP_DECLSPEC unsigned long int mpz_tdiv_ui (mpz_srcptr, unsigned long int) __GMP_ATTRIBUTE_PURE;
 
-#define mpz_tdiv_q __gmpz_tdiv_q
-__GMP_DECLSPEC void mpz_tdiv_q (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
 #define mpz_tdiv_q_2exp __gmpz_tdiv_q_2exp
 __GMP_DECLSPEC void mpz_tdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
 
-#define mpz_tdiv_q_ui __gmpz_tdiv_q_ui
-__GMP_DECLSPEC unsigned long int mpz_tdiv_q_ui (mpz_ptr, mpz_srcptr, unsigned long int);
-
 #define mpz_tdiv_qr __gmpz_tdiv_qr
 __GMP_DECLSPEC void mpz_tdiv_qr (mpz_ptr, mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_tdiv_qr_ui __gmpz_tdiv_qr_ui
-__GMP_DECLSPEC unsigned long int mpz_tdiv_qr_ui (mpz_ptr, mpz_ptr, mpz_srcptr, unsigned long int);
 
 #define mpz_tdiv_r __gmpz_tdiv_r
 __GMP_DECLSPEC void mpz_tdiv_r (mpz_ptr, mpz_srcptr, mpz_srcptr);
@@ -1463,8 +1448,6 @@ mpn_neg (mp_ptr __gmp_rp, mp_srcptr __gmp_up, mp_size_t __gmp_n)
   mpn_divrem (qp, __GMP_CAST (mp_size_t, 0), np, nsize, dp, dsize)
 
 /* Source-level compatibility with GMP 1.  */
-#define mpz_mdiv	mpz_fdiv_q
-#define mpz_mdivmod	mpz_fdiv_qr
 #define mpz_mmod	mpz_fdiv_r
 #define mpz_mdiv_ui	mpz_fdiv_q_ui
 #define mpz_mdivmod_ui(q,r,n,d) \
@@ -1473,8 +1456,6 @@ mpn_neg (mp_ptr __gmp_rp, mp_srcptr __gmp_up, mp_size_t __gmp_n)
   (((r) == 0) ? mpz_fdiv_ui (n,d) : mpz_fdiv_r_ui (r,n,d))
 
 /* Useful synonyms, but not quite compatible with GMP 1.  */
-#define mpz_div		mpz_fdiv_q
-#define mpz_divmod	mpz_fdiv_qr
 #define mpz_div_ui	mpz_fdiv_q_ui
 #define mpz_divmod_ui	mpz_fdiv_qr_ui
 #define mpz_div_2exp	mpz_fdiv_q_2exp

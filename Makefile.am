@@ -143,12 +143,12 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/cfdiv_q_2exp$U.lo		\
   mpz/clear$U.lo mpz/clears$U.lo		\
   mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
-  mpz/divexact$U.lo mpz/divegcd$U.lo mpz/dive_ui$U.lo			\
+  mpz/divexact$U.lo mpz/dive_ui$U.lo			\
   mpz/dump$U.lo	\
   mpz/export$U.lo 			\
   mpz/fac_ui$U.lo mpz/oddfac_1$U.lo mpz/prodlimbs$U.lo	\
-  mpz/fdiv_q_ui$U.lo mpz/fdiv_qr$U.lo mpz/fdiv_qr_ui$U.lo		\
-  mpz/fdiv_r$U.lo mpz/fdiv_r_ui$U.lo mpz/fdiv_q$U.lo			\
+  mpz/fdiv_q_ui$U.lo mpz/fdiv_qr_ui$U.lo		\
+  mpz/fdiv_r$U.lo mpz/fdiv_r_ui$U.lo		\
   mpz/fdiv_ui$U.lo \
   mpz/gcd$U.lo			\
   mpz/gcd_ui$U.lo mpz/gcdext$U.lo mpz/get_d$U.lo mpz/get_d_2exp$U.lo	\
@@ -171,8 +171,8 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/setbit$U.lo							\
   mpz/size$U.lo mpz/sizeinbase$U.lo mpz/sqrt$U.lo			\
   mpz/sqrtrem$U.lo mpz/sub$U.lo mpz/sub_ui$U.lo mpz/swap$U.lo		\
-  mpz/tdiv_ui$U.lo mpz/tdiv_q$U.lo mpz/tdiv_q_2exp$U.lo			\
-  mpz/tdiv_q_ui$U.lo mpz/tdiv_qr$U.lo mpz/tdiv_qr_ui$U.lo		\
+  mpz/tdiv_ui$U.lo mpz/tdiv_q_2exp$U.lo			\
+  mpz/tdiv_qr$U.lo 	\
   mpz/tdiv_r$U.lo mpz/tdiv_r_2exp$U.lo mpz/tdiv_r_ui$U.lo		\
   mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo
 

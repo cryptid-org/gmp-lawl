@@ -39,9 +39,9 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   cfdiv_q_2exp.c \
   clear.c clears.c \
   cmp.c cmp_si.c cmp_ui.c \
-  divexact.c divegcd.c dive_ui.c  \
-  dump.c export.c fac_ui.c fdiv_q.c fdiv_q_ui.c \
-  fdiv_qr.c fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
+  divexact.c dive_ui.c  \
+  dump.c export.c fac_ui.c fdiv_q_ui.c \
+  fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
   gcd.c gcd_ui.c gcdext.c get_d.c get_d_2exp.c get_si.c \
   get_str.c get_ui.c getlimbn.c \
   import.c init.c init2.c inits.c \
@@ -54,6 +54,6 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   realloc.c realloc2.c \
   scan0.c scan1.c set.c set_d.c set_si.c set_str.c \
   set_ui.c setbit.c size.c sizeinbase.c sqrt.c sqrtrem.c sub.c sub_ui.c \
-  swap.c tdiv_ui.c tdiv_q.c tdiv_q_2exp.c tdiv_q_ui.c tdiv_qr.c \
-  tdiv_qr_ui.c tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
+  swap.c tdiv_ui.c tdiv_q_2exp.c tdiv_qr.c \
+  tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
   ui_sub.c

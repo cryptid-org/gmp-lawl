@@ -131,21 +131,20 @@ LTLIBRARIES = $(noinst_LTLIBRARIES)
 libmpz_la_LIBADD =
 am_libmpz_la_OBJECTS = add.lo add_ui.lo cdiv_q.lo cdiv_q_ui.lo \
 	cfdiv_q_2exp.lo clear.lo clears.lo cmp.lo cmp_si.lo cmp_ui.lo \
-	divexact.lo divegcd.lo dive_ui.lo dump.lo export.lo fac_ui.lo \
-	fdiv_q.lo fdiv_q_ui.lo fdiv_qr.lo fdiv_qr_ui.lo fdiv_r.lo \
-	fdiv_r_ui.lo fdiv_ui.lo gcd.lo gcd_ui.lo gcdext.lo get_d.lo \
-	get_d_2exp.lo get_si.lo get_str.lo get_ui.lo getlimbn.lo \
-	import.lo init.lo init2.lo inits.lo invert.lo iset.lo \
-	iset_d.lo iset_si.lo iset_str.lo iset_ui.lo lcm.lo lcm_ui.lo \
-	mod.lo mul.lo mul_2exp.lo mul_si.lo mul_ui.lo n_pow_ui.lo \
-	neg.lo oddfac_1.lo out_raw.lo out_str.lo perfpow.lo perfsqr.lo \
-	popcount.lo pow_ui.lo powm.lo powm_sec.lo powm_ui.lo \
-	prodlimbs.lo primorial_ui.lo realloc.lo realloc2.lo scan0.lo \
-	scan1.lo set.lo set_d.lo set_si.lo set_str.lo set_ui.lo \
-	setbit.lo size.lo sizeinbase.lo sqrt.lo sqrtrem.lo sub.lo \
-	sub_ui.lo swap.lo tdiv_ui.lo tdiv_q.lo tdiv_q_2exp.lo \
-	tdiv_q_ui.lo tdiv_qr.lo tdiv_qr_ui.lo tdiv_r.lo tdiv_r_2exp.lo \
-	tdiv_r_ui.lo tstbit.lo ui_pow_ui.lo ui_sub.lo
+	divexact.lo dive_ui.lo dump.lo export.lo fac_ui.lo \
+	fdiv_q_ui.lo fdiv_qr_ui.lo fdiv_r.lo fdiv_r_ui.lo fdiv_ui.lo \
+	gcd.lo gcd_ui.lo gcdext.lo get_d.lo get_d_2exp.lo get_si.lo \
+	get_str.lo get_ui.lo getlimbn.lo import.lo init.lo init2.lo \
+	inits.lo invert.lo iset.lo iset_d.lo iset_si.lo iset_str.lo \
+	iset_ui.lo lcm.lo lcm_ui.lo mod.lo mul.lo mul_2exp.lo \
+	mul_si.lo mul_ui.lo n_pow_ui.lo neg.lo oddfac_1.lo out_raw.lo \
+	out_str.lo perfpow.lo perfsqr.lo popcount.lo pow_ui.lo powm.lo \
+	powm_sec.lo powm_ui.lo prodlimbs.lo primorial_ui.lo realloc.lo \
+	realloc2.lo scan0.lo scan1.lo set.lo set_d.lo set_si.lo \
+	set_str.lo set_ui.lo setbit.lo size.lo sizeinbase.lo sqrt.lo \
+	sqrtrem.lo sub.lo sub_ui.lo swap.lo tdiv_ui.lo tdiv_q_2exp.lo \
+	tdiv_qr.lo tdiv_r.lo tdiv_r_2exp.lo tdiv_r_ui.lo tstbit.lo \
+	ui_pow_ui.lo ui_sub.lo
 libmpz_la_OBJECTS = $(am_libmpz_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -364,9 +363,9 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   cfdiv_q_2exp.c \
   clear.c clears.c \
   cmp.c cmp_si.c cmp_ui.c \
-  divexact.c divegcd.c dive_ui.c  \
-  dump.c export.c fac_ui.c fdiv_q.c fdiv_q_ui.c \
-  fdiv_qr.c fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
+  divexact.c dive_ui.c  \
+  dump.c export.c fac_ui.c fdiv_q_ui.c \
+  fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
   gcd.c gcd_ui.c gcdext.c get_d.c get_d_2exp.c get_si.c \
   get_str.c get_ui.c getlimbn.c \
   import.c init.c init2.c inits.c \
@@ -379,8 +378,8 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   realloc.c realloc2.c \
   scan0.c scan1.c set.c set_d.c set_si.c set_str.c \
   set_ui.c setbit.c size.c sizeinbase.c sqrt.c sqrtrem.c sub.c sub_ui.c \
-  swap.c tdiv_ui.c tdiv_q.c tdiv_q_2exp.c tdiv_q_ui.c tdiv_qr.c \
-  tdiv_qr_ui.c tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
+  swap.c tdiv_ui.c tdiv_q_2exp.c tdiv_qr.c \
+  tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
   ui_sub.c
 
 all: all-am
