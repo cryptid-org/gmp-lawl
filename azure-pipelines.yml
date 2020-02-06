@@ -1,8 +1,4 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
+# Pipeline to make automated tests
 trigger:
 - master
 
@@ -10,10 +6,39 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: UseNode@1
+  displayName: 'Install Node.js'
+  inputs:
+	  version: '12.x'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- bash: |
+    sudo apt install -y \
+	    build-essential \
+	    autoconf \
+	    automake
+  displayName: 'Setup packages'
+
+- bash: 'sudo apt remove libgmp-dev'
+  displayName: 'Removing the original GMP'
+
+- bash: |
+    aclocal
+    automake --foreign
+    autoconf
+  displayName: 'Preparation'
+
+- bash: './cofigure --disable-shared --disable--assembly --host=amd64'
+  displayName: 'Configuration'
+
+- bash: |
+    make
+    make install
+  displayName: 'Make GMP'
+
+- bash: 'git clone https://github.com/cryptid-org/cryptid-native.git'
+  displayName: 'Cloning cryptid-native'
+
+- bash: |
+    cd cryptid-native/
+    ./task.sh test
+  displayName: 'Running tests'
