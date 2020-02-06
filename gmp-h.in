@@ -641,30 +641,11 @@ __GMP_DECLSPEC int mpz_invert (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_ior __gmpz_ior
 __GMP_DECLSPEC void mpz_ior (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
-#define mpz_jacobi __gmpz_jacobi
-__GMP_DECLSPEC int mpz_jacobi (mpz_srcptr, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_kronecker mpz_jacobi  /* alias */
-
-#define mpz_kronecker_si __gmpz_kronecker_si
-__GMP_DECLSPEC int mpz_kronecker_si (mpz_srcptr, long) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_kronecker_ui __gmpz_kronecker_ui
-__GMP_DECLSPEC int mpz_kronecker_ui (mpz_srcptr, unsigned long) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_si_kronecker __gmpz_si_kronecker
-__GMP_DECLSPEC int mpz_si_kronecker (long, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
-#define mpz_ui_kronecker __gmpz_ui_kronecker
-__GMP_DECLSPEC int mpz_ui_kronecker (unsigned long, mpz_srcptr) __GMP_ATTRIBUTE_PURE;
-
 #define mpz_lcm __gmpz_lcm
 __GMP_DECLSPEC void mpz_lcm (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
 #define mpz_lcm_ui __gmpz_lcm_ui
 __GMP_DECLSPEC void mpz_lcm_ui (mpz_ptr, mpz_srcptr, unsigned long);
-
-#define mpz_legendre mpz_jacobi  /* alias */
 
 #define mpz_lucnum_ui __gmpz_lucnum_ui
 __GMP_DECLSPEC void mpz_lucnum_ui (mpz_ptr, unsigned long int);

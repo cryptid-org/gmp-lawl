@@ -139,8 +139,7 @@ am_libmpz_la_OBJECTS = add.lo add_ui.lo cdiv_q.lo cdiv_q_ui.lo \
 	gcd.lo gcd_ui.lo gcdext.lo get_d.lo get_d_2exp.lo get_si.lo \
 	get_str.lo get_ui.lo getlimbn.lo import.lo init.lo init2.lo \
 	inits.lo inp_raw.lo inp_str.lo invert.lo ior.lo iset.lo \
-	iset_d.lo iset_si.lo iset_str.lo iset_ui.lo jacobi.lo \
-	kronsz.lo kronuz.lo kronzs.lo kronzu.lo lcm.lo lcm_ui.lo \
+	iset_d.lo iset_si.lo iset_str.lo iset_ui.lo lcm.lo lcm_ui.lo \
 	limbs_read.lo limbs_write.lo limbs_modify.lo limbs_finish.lo \
 	lucnum_ui.lo lucnum2_ui.lo mod.lo mul.lo mul_2exp.lo mul_si.lo \
 	mul_ui.lo n_pow_ui.lo neg.lo oddfac_1.lo out_raw.lo out_str.lo \
@@ -380,7 +379,6 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   get_str.c get_ui.c getlimbn.c \
   import.c init.c init2.c inits.c inp_raw.c inp_str.c \
   invert.c ior.c iset.c iset_d.c iset_si.c iset_str.c iset_ui.c \
-  jacobi.c kronsz.c kronuz.c kronzs.c kronzu.c \
   lcm.c lcm_ui.c limbs_read.c limbs_write.c limbs_modify.c limbs_finish.c \
   lucnum_ui.c lucnum2_ui.c \
   mod.c mul.c mul_2exp.c mul_si.c mul_ui.c n_pow_ui.c neg.c \

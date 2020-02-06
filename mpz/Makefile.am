@@ -49,7 +49,6 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   get_str.c get_ui.c getlimbn.c \
   import.c init.c init2.c inits.c inp_raw.c inp_str.c \
   invert.c ior.c iset.c iset_d.c iset_si.c iset_str.c iset_ui.c \
-  jacobi.c kronsz.c kronuz.c kronzs.c kronzu.c \
   lcm.c lcm_ui.c limbs_read.c limbs_write.c limbs_modify.c limbs_finish.c \
   lucnum_ui.c lucnum2_ui.c \
   mod.c mul.c mul_2exp.c mul_si.c mul_ui.c n_pow_ui.c neg.c \
