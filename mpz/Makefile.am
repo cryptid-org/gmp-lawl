@@ -42,9 +42,6 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   divexact.c divegcd.c dive_ui.c divis.c divis_ui.c divis_2exp.c \
   dump.c export.c fac_ui.c fdiv_q.c fdiv_q_ui.c \
   fdiv_qr.c fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
-  fib_ui.c fib2_ui.c \
-  fits_sint.c fits_slong.c fits_sshort.c \
-  fits_uint.c fits_ulong.c fits_ushort.c \
   gcd.c gcd_ui.c gcdext.c get_d.c get_d_2exp.c get_si.c \
   get_str.c get_ui.c getlimbn.c \
   import.c init.c init2.c inits.c inp_raw.c inp_str.c \
