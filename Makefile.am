@@ -168,7 +168,6 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/out_raw$U.lo mpz/out_str$U.lo mpz/perfpow$U.lo mpz/perfsqr$U.lo	\
   mpz/popcount$U.lo mpz/pow_ui$U.lo mpz/powm$U.lo mpz/powm_sec$U.lo	\
   mpz/powm_ui$U.lo mpz/primorial_ui$U.lo				\
-  mpz/random$U.lo mpz/random2$U.lo			\
   mpz/realloc$U.lo mpz/realloc2$U.lo mpz/remove$U.lo mpz/roinit_n$U.lo  \
   mpz/root$U.lo mpz/rootrem$U.lo mpz/rrandomb$U.lo mpz/scan0$U.lo	\
   mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo		\
@@ -179,8 +178,7 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/tdiv_ui$U.lo mpz/tdiv_q$U.lo mpz/tdiv_q_2exp$U.lo			\
   mpz/tdiv_q_ui$U.lo mpz/tdiv_qr$U.lo mpz/tdiv_qr_ui$U.lo		\
   mpz/tdiv_r$U.lo mpz/tdiv_r_2exp$U.lo mpz/tdiv_r_ui$U.lo		\
-  mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo mpz/urandomb$U.lo	\
-  mpz/urandomm$U.lo mpz/xor$U.lo
+  mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo
 
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
