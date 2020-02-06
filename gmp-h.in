@@ -586,21 +586,8 @@ __GMP_DECLSPEC int mpz_init_set_str (mpz_ptr, const char *, int);
 #define mpz_init_set_ui __gmpz_init_set_ui
 __GMP_DECLSPEC void mpz_init_set_ui (mpz_ptr, unsigned long int);
 
-#define mpz_inp_raw __gmpz_inp_raw
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_inp_raw (mpz_ptr, FILE *);
-#endif
-
-#define mpz_inp_str __gmpz_inp_str
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_inp_str (mpz_ptr, FILE *, int);
-#endif
-
 #define mpz_invert __gmpz_invert
 __GMP_DECLSPEC int mpz_invert (mpz_ptr, mpz_srcptr, mpz_srcptr);
-
-#define mpz_ior __gmpz_ior
-__GMP_DECLSPEC void mpz_ior (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
 #define mpz_lcm __gmpz_lcm
 __GMP_DECLSPEC void mpz_lcm (mpz_ptr, mpz_srcptr, mpz_srcptr);

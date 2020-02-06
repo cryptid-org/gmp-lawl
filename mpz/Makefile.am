@@ -44,8 +44,8 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   fdiv_qr.c fdiv_qr_ui.c fdiv_r.c fdiv_r_ui.c fdiv_ui.c \
   gcd.c gcd_ui.c gcdext.c get_d.c get_d_2exp.c get_si.c \
   get_str.c get_ui.c getlimbn.c \
-  import.c init.c init2.c inits.c inp_raw.c inp_str.c \
-  invert.c ior.c iset.c iset_d.c iset_si.c iset_str.c iset_ui.c \
+  import.c init.c init2.c inits.c \
+  invert.c iset.c iset_d.c iset_si.c iset_str.c iset_ui.c \
   lcm.c lcm_ui.c \
   mod.c mul.c mul_2exp.c mul_si.c mul_ui.c n_pow_ui.c neg.c \
   oddfac_1.c \
