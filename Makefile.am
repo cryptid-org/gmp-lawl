@@ -157,9 +157,7 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/inp_raw$U.lo mpz/inp_str$U.lo mpz/invert$U.lo			\
   mpz/ior$U.lo mpz/iset$U.lo mpz/iset_d$U.lo mpz/iset_si$U.lo		\
   mpz/iset_str$U.lo mpz/iset_ui$U.lo \
-  mpz/lcm$U.lo mpz/lcm_ui$U.lo mpz/limbs_finish$U.lo			\
-  mpz/limbs_modify$U.lo mpz/limbs_read$U.lo mpz/limbs_write$U.lo	\
-  mpz/lucnum_ui$U.lo mpz/lucnum2_ui$U.lo				\
+  mpz/lcm$U.lo mpz/lcm_ui$U.lo \
   mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
   mpz/mul_si$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo		\

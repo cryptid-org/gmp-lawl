@@ -617,12 +617,6 @@ __GMP_DECLSPEC void mpz_lcm (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_lcm_ui __gmpz_lcm_ui
 __GMP_DECLSPEC void mpz_lcm_ui (mpz_ptr, mpz_srcptr, unsigned long);
 
-#define mpz_lucnum_ui __gmpz_lucnum_ui
-__GMP_DECLSPEC void mpz_lucnum_ui (mpz_ptr, unsigned long int);
-
-#define mpz_lucnum2_ui __gmpz_lucnum2_ui
-__GMP_DECLSPEC void mpz_lucnum2_ui (mpz_ptr, mpz_ptr, unsigned long int);
-
 #define mpz_mod __gmpz_mod
 __GMP_DECLSPEC void mpz_mod (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
@@ -768,19 +762,6 @@ __GMP_DECLSPEC int mpz_tstbit (mpz_srcptr, mp_bitcnt_t) __GMP_NOTHROW __GMP_ATTR
 
 #define mpz_ui_pow_ui __gmpz_ui_pow_ui
 __GMP_DECLSPEC void mpz_ui_pow_ui (mpz_ptr, unsigned long int, unsigned long int);
-
-#define mpz_limbs_read __gmpz_limbs_read
-__GMP_DECLSPEC mp_srcptr mpz_limbs_read (mpz_srcptr);
-
-#define mpz_limbs_write __gmpz_limbs_write
-__GMP_DECLSPEC mp_ptr mpz_limbs_write (mpz_ptr, mp_size_t);
-
-#define mpz_limbs_modify __gmpz_limbs_modify
-__GMP_DECLSPEC mp_ptr mpz_limbs_modify (mpz_ptr, mp_size_t);
-
-#define mpz_limbs_finish __gmpz_limbs_finish
-__GMP_DECLSPEC void mpz_limbs_finish (mpz_ptr, mp_size_t);
-
 
 /************ Low level positive-integer (i.e. N) routines.  ************/
 
