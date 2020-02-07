@@ -3,7 +3,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-16.04'
 
 steps:
 - task: UseNode@1
@@ -27,7 +27,7 @@ steps:
     autoconf
   displayName: 'Preparation'
 
-- bash: './configure --disable-shared --disable--assembly --host=amd64 ABI=64'
+- bash: './configure --disable-shared --disable--assembly --host=amd64'
   displayName: 'Configuration'
 
 - bash: |
