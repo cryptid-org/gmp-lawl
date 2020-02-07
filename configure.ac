@@ -292,8 +292,6 @@ AH_VERBATIM([HAVE_HOST_CPU_1],
    If your CPU is not in any of these families, leave all undefined.
    For an AMD64 chip, define "x86" in ABI=32, but not in ABI=64. */
 #undef HAVE_HOST_CPU_FAMILY_m68k
-#undef HAVE_HOST_CPU_FAMILY_power
-#undef HAVE_HOST_CPU_FAMILY_powerpc
 #undef HAVE_HOST_CPU_FAMILY_x86
 #undef HAVE_HOST_CPU_FAMILY_x86_64
 
@@ -304,10 +302,6 @@ AH_VERBATIM([HAVE_HOST_CPU_1],
 #undef HAVE_HOST_CPU_m68040
 #undef HAVE_HOST_CPU_m68060
 #undef HAVE_HOST_CPU_m68360
-#undef HAVE_HOST_CPU_powerpc604
-#undef HAVE_HOST_CPU_powerpc604e
-#undef HAVE_HOST_CPU_powerpc750
-#undef HAVE_HOST_CPU_powerpc7400
 #undef HAVE_HOST_CPU_supersparc
 #undef HAVE_HOST_CPU_i386
 #undef HAVE_HOST_CPU_i586
@@ -443,9 +437,6 @@ cc_64_cflags="-O"
 
 SPEED_CYCLECOUNTER_OBJ=
 cyclecounter_size=2
-
-AC_SUBST(HAVE_HOST_CPU_FAMILY_power,  0)
-AC_SUBST(HAVE_HOST_CPU_FAMILY_powerpc,0)
 
 case $host in
 

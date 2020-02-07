@@ -263,8 +263,6 @@ GMP_LDFLAGS = @GMP_LDFLAGS@
 GMP_LIMB_BITS = @GMP_LIMB_BITS@
 GMP_NAIL_BITS = @GMP_NAIL_BITS@
 GREP = @GREP@
-HAVE_HOST_CPU_FAMILY_power = @HAVE_HOST_CPU_FAMILY_power@
-HAVE_HOST_CPU_FAMILY_powerpc = @HAVE_HOST_CPU_FAMILY_powerpc@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -376,7 +374,7 @@ nodist_libmpn_la_SOURCES = fib_table.c mp_bases.c
 libmpn_la_LIBADD = $(OFILES)
 libmpn_la_DEPENDENCIES = $(OFILES)
 TARG_DIST = cray generic ia64 lisp m68k m88k \
-  minithres mips32 mips64 pa32 pa64 power powerpc32 powerpc64 \
+  minithres mips32 mips64 pa32 pa64  \
   s390_32 s390_64 sh sparc32 sparc64 thumb vax x86 x86_64
 
 EXTRA_DIST = asm-defs.m4 cpp-ccas m4-ccas $(TARG_DIST)
