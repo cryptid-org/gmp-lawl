@@ -4526,39 +4526,6 @@ $as_echo "$result" >&6; }
 fi
 
             ;;
-          -Wa,-m*)
-            case $host in
-              alpha*-*-*)
-                { $as_echo "$as_me:${as_lineno-$LINENO}: checking assembler $cc $cflags $flag" >&5
-$as_echo_n "checking assembler $cc $cflags $flag... " >&6; }
-result=no
-cat >conftest.c <<EOF
-int main () {}
-EOF
-gmp_compile="$cc $cflags $flag -c conftest.c >conftest.out 2>&1"
-if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$gmp_compile\""; } >&5
-  (eval $gmp_compile) 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  if grep "Unknown CPU identifier" conftest.out >/dev/null; then : ;
-  else
-    result=yes
-  fi
-fi
-cat conftest.out >&5
-rm -f conftest*
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $result" >&5
-$as_echo "$result" >&6; }
-if test "$result" = yes; then
-  :
-else
-  continue
-fi
-
-              ;;
-            esac
-            ;;
           -Wa,-oldas)
             { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $cc $cflags $cppflags -Wa,-oldas" >&5
 $as_echo_n "checking for $cc $cflags $cppflags -Wa,-oldas... " >&6; }

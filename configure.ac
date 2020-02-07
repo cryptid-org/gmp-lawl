@@ -291,7 +291,6 @@ AH_VERBATIM([HAVE_HOST_CPU_1],
 [/* Define one of these to 1 for the host CPU family.
    If your CPU is not in any of these families, leave all undefined.
    For an AMD64 chip, define "x86" in ABI=32, but not in ABI=64. */
-#undef HAVE_HOST_CPU_FAMILY_alpha
 #undef HAVE_HOST_CPU_FAMILY_m68k
 #undef HAVE_HOST_CPU_FAMILY_power
 #undef HAVE_HOST_CPU_FAMILY_powerpc
@@ -300,9 +299,6 @@ AH_VERBATIM([HAVE_HOST_CPU_1],
 
 /* Define one of the following to 1 for the host CPU, as per the output of
    ./config.guess.  If your CPU is not listed here, leave all undefined.  */
-#undef HAVE_HOST_CPU_alphaev67
-#undef HAVE_HOST_CPU_alphaev68
-#undef HAVE_HOST_CPU_alphaev7
 #undef HAVE_HOST_CPU_m68020
 #undef HAVE_HOST_CPU_m68030
 #undef HAVE_HOST_CPU_m68040
@@ -927,13 +923,6 @@ if test $found_compiler = yes; then
                                    [cflags="$cflags $flag"
                                    break],
                                    [continue])
-            ;;
-          -Wa,-m*)
-            case $host in
-              alpha*-*-*)
-                GMP_GCC_WA_MCPU($cc $cflags, $flag, , [continue])
-              ;;
-            esac
             ;;
           -Wa,-oldas)
             GMP_GCC_WA_OLDAS($cc $cflags $cppflags,
