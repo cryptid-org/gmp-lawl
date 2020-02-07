@@ -297,11 +297,6 @@ AH_VERBATIM([HAVE_HOST_CPU_1],
 
 /* Define one of the following to 1 for the host CPU, as per the output of
    ./config.guess.  If your CPU is not listed here, leave all undefined.  */
-#undef HAVE_HOST_CPU_m68020
-#undef HAVE_HOST_CPU_m68030
-#undef HAVE_HOST_CPU_m68040
-#undef HAVE_HOST_CPU_m68060
-#undef HAVE_HOST_CPU_m68360
 #undef HAVE_HOST_CPU_i386
 #undef HAVE_HOST_CPU_i586
 #undef HAVE_HOST_CPU_i686
@@ -310,14 +305,7 @@ AH_VERBATIM([HAVE_HOST_CPU_1],
 #undef HAVE_HOST_CPU_pentiumpro
 #undef HAVE_HOST_CPU_pentium2
 #undef HAVE_HOST_CPU_pentium3
-#undef HAVE_HOST_CPU_s390_z900
-#undef HAVE_HOST_CPU_s390_z990
-#undef HAVE_HOST_CPU_s390_z9
-#undef HAVE_HOST_CPU_s390_z10
-#undef HAVE_HOST_CPU_s390_z196
-
-/* Define to 1 iff we have a s390 with 64-bit registers.  */
-#undef HAVE_HOST_CPU_s390_zarch])
+])
 
 
 # Table of compilers, options, and mpn paths.  This code has various related
