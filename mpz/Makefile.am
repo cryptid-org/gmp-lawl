@@ -33,12 +33,8 @@ AM_CPPFLAGS = -D__GMP_WITHIN_GMP -I$(top_srcdir)
 
 noinst_LTLIBRARIES = libmpz.la
 libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
-  add.c add_ui.c \
-  cdiv_q.c \
-  cdiv_q_ui.c \
-  cfdiv_q_2exp.c \
-  clear.c clears.c \
-  cmp.c cmp_si.c cmp_ui.c \
+  add.c add_ui.c cdiv_q.c cdiv_q_ui.c cfdiv_q_2exp.c \
+  clear.c clears.c cmp.c cmp_si.c cmp_ui.c \
   divexact.c dive_ui.c fdiv_q_ui.c \
   gcdext.c get_str.c get_ui.c getlimbn.c \
   import.c init.c inits.c \
@@ -47,7 +43,6 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   pow_ui.c powm.c powm_ui.c \
   realloc.c realloc2.c \
   scan1.c set.c set_si.c set_str.c \
-  set_ui.c setbit.c sizeinbase.c sub.c sub_ui.c \
-  swap.c tdiv_ui.c tdiv_q_2exp.c tdiv_qr.c \
-  tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
-  ui_sub.c
+  set_ui.c sizeinbase.c sub.c sub_ui.c \
+  tdiv_q_2exp.c tdiv_qr.c \
+  tdiv_r.c tstbit.c ui_pow_ui.c

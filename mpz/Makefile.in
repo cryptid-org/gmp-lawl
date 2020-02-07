@@ -135,10 +135,9 @@ am_libmpz_la_OBJECTS = add.lo add_ui.lo cdiv_q.lo cdiv_q_ui.lo \
 	get_ui.lo getlimbn.lo import.lo init.lo inits.lo invert.lo \
 	iset.lo iset_ui.lo mod.lo mul.lo mul_ui.lo n_pow_ui.lo neg.lo \
 	pow_ui.lo powm.lo powm_ui.lo realloc.lo realloc2.lo scan1.lo \
-	set.lo set_si.lo set_str.lo set_ui.lo setbit.lo sizeinbase.lo \
-	sub.lo sub_ui.lo swap.lo tdiv_ui.lo tdiv_q_2exp.lo tdiv_qr.lo \
-	tdiv_r.lo tdiv_r_2exp.lo tdiv_r_ui.lo tstbit.lo ui_pow_ui.lo \
-	ui_sub.lo
+	set.lo set_si.lo set_str.lo set_ui.lo sizeinbase.lo sub.lo \
+	sub_ui.lo tdiv_q_2exp.lo tdiv_qr.lo tdiv_r.lo tstbit.lo \
+	ui_pow_ui.lo
 libmpz_la_OBJECTS = $(am_libmpz_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -351,12 +350,8 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -D__GMP_WITHIN_GMP -I$(top_srcdir)
 noinst_LTLIBRARIES = libmpz.la
 libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
-  add.c add_ui.c \
-  cdiv_q.c \
-  cdiv_q_ui.c \
-  cfdiv_q_2exp.c \
-  clear.c clears.c \
-  cmp.c cmp_si.c cmp_ui.c \
+  add.c add_ui.c cdiv_q.c cdiv_q_ui.c cfdiv_q_2exp.c \
+  clear.c clears.c cmp.c cmp_si.c cmp_ui.c \
   divexact.c dive_ui.c fdiv_q_ui.c \
   gcdext.c get_str.c get_ui.c getlimbn.c \
   import.c init.c inits.c \
@@ -365,10 +360,9 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   pow_ui.c powm.c powm_ui.c \
   realloc.c realloc2.c \
   scan1.c set.c set_si.c set_str.c \
-  set_ui.c setbit.c sizeinbase.c sub.c sub_ui.c \
-  swap.c tdiv_ui.c tdiv_q_2exp.c tdiv_qr.c \
-  tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
-  ui_sub.c
+  set_ui.c sizeinbase.c sub.c sub_ui.c \
+  tdiv_q_2exp.c tdiv_qr.c \
+  tdiv_r.c tstbit.c ui_pow_ui.c
 
 all: all-am
 

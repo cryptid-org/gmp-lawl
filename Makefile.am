@@ -139,28 +139,23 @@ AM_CPPFLAGS=-D__GMP_WITHIN_GMP
 
 
 MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
-  mpz/cdiv_q$U.lo mpz/cdiv_q_ui$U.lo					\
-  mpz/cfdiv_q_2exp$U.lo		\
+  mpz/cdiv_q$U.lo mpz/cdiv_q_ui$U.lo mpz/cfdiv_q_2exp$U.lo		\
   mpz/clear$U.lo mpz/clears$U.lo		\
   mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
   mpz/divexact$U.lo mpz/dive_ui$U.lo			\
   mpz/fdiv_q_ui$U.lo mpz/fdiv_r_ui$U.lo 	\
   mpz/gcdext$U.lo mpz/get_str$U.lo mpz/get_ui$U.lo mpz/getlimbn$U.lo	\
   mpz/import$U.lo mpz/init$U.lo mpz/inits$U.lo		\
-  mpz/invert$U.lo			\
-  mpz/iset$U.lo mpz/iset_ui$U.lo \
+  mpz/invert$U.lo mpz/iset$U.lo mpz/iset_ui$U.lo \
   mpz/mod$U.lo mpz/mul$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo		\
   mpz/pow_ui$U.lo mpz/powm$U.lo	mpz/powm_ui$U.lo 	\
   mpz/realloc$U.lo mpz/realloc2$U.lo  \
   mpz/scan1$U.lo mpz/set$U.lo 	\
   mpz/set_si$U.lo mpz/set_str$U.lo mpz/set_ui$U.lo	\
-  mpz/setbit$U.lo mpz/sizeinbase$U.lo \
-  mpz/sub$U.lo mpz/sub_ui$U.lo mpz/swap$U.lo		\
-  mpz/tdiv_ui$U.lo mpz/tdiv_q_2exp$U.lo			\
-  mpz/tdiv_qr$U.lo 	\
-  mpz/tdiv_r$U.lo mpz/tdiv_r_2exp$U.lo mpz/tdiv_r_ui$U.lo		\
-  mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo mpz/ui_sub$U.lo
+  mpz/sizeinbase$U.lo mpz/sub$U.lo mpz/sub_ui$U.lo 	\
+  mpz/tdiv_q_2exp$U.lo mpz/tdiv_qr$U.lo mpz/tdiv_r$U.lo \
+  mpz/tstbit$U.lo mpz/ui_pow_ui$U.lo
 
 MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
