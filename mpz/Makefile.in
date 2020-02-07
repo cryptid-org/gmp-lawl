@@ -134,12 +134,11 @@ am_libmpz_la_OBJECTS = add.lo add_ui.lo cdiv_q.lo cdiv_q_ui.lo \
 	divexact.lo dive_ui.lo fdiv_q_ui.lo gcdext.lo get_str.lo \
 	get_ui.lo getlimbn.lo import.lo init.lo inits.lo invert.lo \
 	iset.lo iset_ui.lo mod.lo mul.lo mul_ui.lo n_pow_ui.lo neg.lo \
-	pow_ui.lo powm.lo powm_sec.lo powm_ui.lo prodlimbs.lo \
-	primorial_ui.lo realloc.lo realloc2.lo scan0.lo scan1.lo \
-	set.lo set_d.lo set_si.lo set_str.lo set_ui.lo setbit.lo \
-	size.lo sizeinbase.lo sqrt.lo sqrtrem.lo sub.lo sub_ui.lo \
-	swap.lo tdiv_ui.lo tdiv_q_2exp.lo tdiv_qr.lo tdiv_r.lo \
-	tdiv_r_2exp.lo tdiv_r_ui.lo tstbit.lo ui_pow_ui.lo ui_sub.lo
+	pow_ui.lo powm.lo powm_ui.lo realloc.lo realloc2.lo scan1.lo \
+	set.lo set_si.lo set_str.lo set_ui.lo setbit.lo sizeinbase.lo \
+	sub.lo sub_ui.lo swap.lo tdiv_ui.lo tdiv_q_2exp.lo tdiv_qr.lo \
+	tdiv_r.lo tdiv_r_2exp.lo tdiv_r_ui.lo tstbit.lo ui_pow_ui.lo \
+	ui_sub.lo
 libmpz_la_OBJECTS = $(am_libmpz_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -363,11 +362,10 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   import.c init.c inits.c \
   invert.c iset.c iset_ui.c \
   mod.c mul.c mul_ui.c n_pow_ui.c neg.c \
-  pow_ui.c powm.c \
-  powm_sec.c powm_ui.c prodlimbs.c primorial_ui.c \
+  pow_ui.c powm.c powm_ui.c \
   realloc.c realloc2.c \
-  scan0.c scan1.c set.c set_d.c set_si.c set_str.c \
-  set_ui.c setbit.c size.c sizeinbase.c sqrt.c sqrtrem.c sub.c sub_ui.c \
+  scan1.c set.c set_si.c set_str.c \
+  set_ui.c setbit.c sizeinbase.c sub.c sub_ui.c \
   swap.c tdiv_ui.c tdiv_q_2exp.c tdiv_qr.c \
   tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
   ui_sub.c

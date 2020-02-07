@@ -144,7 +144,6 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/clear$U.lo mpz/clears$U.lo		\
   mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
   mpz/divexact$U.lo mpz/dive_ui$U.lo			\
-  mpz/prodlimbs$U.lo	\
   mpz/fdiv_q_ui$U.lo mpz/fdiv_r_ui$U.lo 	\
   mpz/gcdext$U.lo mpz/get_str$U.lo mpz/get_ui$U.lo mpz/getlimbn$U.lo	\
   mpz/import$U.lo mpz/init$U.lo mpz/inits$U.lo		\
@@ -152,15 +151,12 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/iset$U.lo mpz/iset_ui$U.lo \
   mpz/mod$U.lo mpz/mul$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo		\
-  mpz/pow_ui$U.lo mpz/powm$U.lo mpz/powm_sec$U.lo	\
-  mpz/powm_ui$U.lo mpz/primorial_ui$U.lo				\
+  mpz/pow_ui$U.lo mpz/powm$U.lo	mpz/powm_ui$U.lo 	\
   mpz/realloc$U.lo mpz/realloc2$U.lo  \
-  mpz/scan0$U.lo	\
-  mpz/scan1$U.lo mpz/set$U.lo mpz/set_d$U.lo		\
+  mpz/scan1$U.lo mpz/set$U.lo 	\
   mpz/set_si$U.lo mpz/set_str$U.lo mpz/set_ui$U.lo	\
-  mpz/setbit$U.lo							\
-  mpz/size$U.lo mpz/sizeinbase$U.lo mpz/sqrt$U.lo			\
-  mpz/sqrtrem$U.lo mpz/sub$U.lo mpz/sub_ui$U.lo mpz/swap$U.lo		\
+  mpz/setbit$U.lo mpz/sizeinbase$U.lo \
+  mpz/sub$U.lo mpz/sub_ui$U.lo mpz/swap$U.lo		\
   mpz/tdiv_ui$U.lo mpz/tdiv_q_2exp$U.lo			\
   mpz/tdiv_qr$U.lo 	\
   mpz/tdiv_r$U.lo mpz/tdiv_r_2exp$U.lo mpz/tdiv_r_ui$U.lo		\

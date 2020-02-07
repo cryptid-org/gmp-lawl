@@ -44,11 +44,10 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   import.c init.c inits.c \
   invert.c iset.c iset_ui.c \
   mod.c mul.c mul_ui.c n_pow_ui.c neg.c \
-  pow_ui.c powm.c \
-  powm_sec.c powm_ui.c prodlimbs.c primorial_ui.c \
+  pow_ui.c powm.c powm_ui.c \
   realloc.c realloc2.c \
-  scan0.c scan1.c set.c set_d.c set_si.c set_str.c \
-  set_ui.c setbit.c size.c sizeinbase.c sqrt.c sqrtrem.c sub.c sub_ui.c \
+  scan1.c set.c set_si.c set_str.c \
+  set_ui.c setbit.c sizeinbase.c sub.c sub_ui.c \
   swap.c tdiv_ui.c tdiv_q_2exp.c tdiv_qr.c \
   tdiv_r.c tdiv_r_2exp.c tdiv_r_ui.c tstbit.c ui_pow_ui.c \
   ui_sub.c
