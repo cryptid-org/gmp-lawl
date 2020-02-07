@@ -821,7 +821,6 @@ enable_nails
 enable_profiling
 with_readline
 enable_fat
-enable_minithres
 enable_fake_cpuid
 enable_shared
 enable_static
@@ -1494,7 +1493,6 @@ Optional Features:
   --enable-profiling      build with profiler support [default=no]
   --enable-fat            build fat libraries on systems that support it
                           [default=no]
-  --enable-minithres      choose minimal thresholds for testing [default=no]
   --enable-fake-cpuid     enable GMP_CPU_TYPE faking cpuid [default=no]
   --enable-shared[=PKGS]  build shared libraries [default=yes]
   --enable-static[=PKGS]  build static libraries [default=yes]
@@ -3757,19 +3755,6 @@ esac
 else
   enable_fat=no
 fi
-
-
-
-# Check whether --enable-minithres was given.
-if test "${enable_minithres+set}" = set; then :
-  enableval=$enable_minithres; case $enableval in
-yes|no) ;;
-*) as_fn_error $? "bad value $enableval for --enable-minithres, need yes or no" "$LINENO" 5 ;;
-esac
-else
-  enable_minithres=no
-fi
-
 
 
 # Check whether --enable-fake-cpuid was given.

@@ -243,17 +243,6 @@ yes|no) ;;
 esac],
 [enable_fat=no])
 
-
-AC_ARG_ENABLE(minithres,
-AC_HELP_STRING([--enable-minithres],
-               [choose minimal thresholds for testing [default=no]]),
-[case $enableval in
-yes|no) ;;
-*) AC_MSG_ERROR([bad value $enableval for --enable-minithres, need yes or no]) ;;
-esac],
-[enable_minithres=no])
-
-
 AC_ARG_ENABLE(fake-cpuid,
 AC_HELP_STRING([--enable-fake-cpuid],[enable GMP_CPU_TYPE faking cpuid [default=no]]),
 [case $enableval in
