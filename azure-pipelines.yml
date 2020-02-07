@@ -27,7 +27,7 @@ steps:
     autoconf
   displayName: 'Preparation'
 
-- bash: './configure --disable-shared --disable--assembly --host=amd64'
+- bash: './configure --disable-shared --disable--assembly --host=amd64 ABI=32'
   displayName: 'Configuration'
 
 - bash: |
