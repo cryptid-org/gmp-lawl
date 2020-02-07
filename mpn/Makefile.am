@@ -40,8 +40,8 @@ libmpn_la_LIBADD = $(OFILES)
 libmpn_la_DEPENDENCIES = $(OFILES)
 
 TARG_DIST = cray generic ia64 lisp m68k m88k \
-  minithres mips32 mips64 pa32 pa64  \
-  s390_32 s390_64 sh sparc32 sparc64 thumb vax x86 x86_64
+  minithres mips32 mips64 \
+  s390_32 s390_64 sh thumb vax x86 x86_64
 
 EXTRA_DIST = asm-defs.m4 cpp-ccas m4-ccas $(TARG_DIST)
 
