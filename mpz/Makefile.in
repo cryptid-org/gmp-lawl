@@ -133,16 +133,14 @@ am_libmpz_la_OBJECTS = add.lo add_ui.lo cdiv_q.lo cdiv_q_ui.lo \
 	cfdiv_q_2exp.lo clear.lo clears.lo cmp.lo cmp_si.lo cmp_ui.lo \
 	divexact.lo dive_ui.lo fdiv_q_ui.lo gcdext.lo get_str.lo \
 	get_ui.lo getlimbn.lo import.lo init.lo inits.lo invert.lo \
-	iset.lo iset_d.lo iset_si.lo iset_str.lo iset_ui.lo mod.lo \
-	mul.lo mul_2exp.lo mul_si.lo mul_ui.lo n_pow_ui.lo neg.lo \
-	oddfac_1.lo out_raw.lo out_str.lo perfpow.lo perfsqr.lo \
-	popcount.lo pow_ui.lo powm.lo powm_sec.lo powm_ui.lo \
-	prodlimbs.lo primorial_ui.lo realloc.lo realloc2.lo scan0.lo \
-	scan1.lo set.lo set_d.lo set_si.lo set_str.lo set_ui.lo \
-	setbit.lo size.lo sizeinbase.lo sqrt.lo sqrtrem.lo sub.lo \
-	sub_ui.lo swap.lo tdiv_ui.lo tdiv_q_2exp.lo tdiv_qr.lo \
-	tdiv_r.lo tdiv_r_2exp.lo tdiv_r_ui.lo tstbit.lo ui_pow_ui.lo \
-	ui_sub.lo
+	iset.lo iset_ui.lo mod.lo mul.lo mul_ui.lo n_pow_ui.lo neg.lo \
+	perfpow.lo perfsqr.lo popcount.lo pow_ui.lo powm.lo \
+	powm_sec.lo powm_ui.lo prodlimbs.lo primorial_ui.lo realloc.lo \
+	realloc2.lo scan0.lo scan1.lo set.lo set_d.lo set_si.lo \
+	set_str.lo set_ui.lo setbit.lo size.lo sizeinbase.lo sqrt.lo \
+	sqrtrem.lo sub.lo sub_ui.lo swap.lo tdiv_ui.lo tdiv_q_2exp.lo \
+	tdiv_qr.lo tdiv_r.lo tdiv_r_2exp.lo tdiv_r_ui.lo tstbit.lo \
+	ui_pow_ui.lo ui_sub.lo
 libmpz_la_OBJECTS = $(am_libmpz_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -364,10 +362,9 @@ libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   divexact.c dive_ui.c fdiv_q_ui.c \
   gcdext.c get_str.c get_ui.c getlimbn.c \
   import.c init.c inits.c \
-  invert.c iset.c iset_d.c iset_si.c iset_str.c iset_ui.c \
-  mod.c mul.c mul_2exp.c mul_si.c mul_ui.c n_pow_ui.c neg.c \
-  oddfac_1.c \
-  out_raw.c out_str.c perfpow.c perfsqr.c popcount.c pow_ui.c powm.c \
+  invert.c iset.c iset_ui.c \
+  mod.c mul.c mul_ui.c n_pow_ui.c neg.c \
+  perfpow.c perfsqr.c popcount.c pow_ui.c powm.c \
   powm_sec.c powm_ui.c prodlimbs.c primorial_ui.c \
   realloc.c realloc2.c \
   scan0.c scan1.c set.c set_d.c set_si.c set_str.c \

@@ -532,15 +532,6 @@ __GMP_DECLSPEC void mpz_inits (mpz_ptr, ...);
 #define mpz_init_set __gmpz_init_set
 __GMP_DECLSPEC void mpz_init_set (mpz_ptr, mpz_srcptr);
 
-#define mpz_init_set_d __gmpz_init_set_d
-__GMP_DECLSPEC void mpz_init_set_d (mpz_ptr, double);
-
-#define mpz_init_set_si __gmpz_init_set_si
-__GMP_DECLSPEC void mpz_init_set_si (mpz_ptr, signed long int);
-
-#define mpz_init_set_str __gmpz_init_set_str
-__GMP_DECLSPEC int mpz_init_set_str (mpz_ptr, const char *, int);
-
 #define mpz_init_set_ui __gmpz_init_set_ui
 __GMP_DECLSPEC void mpz_init_set_ui (mpz_ptr, unsigned long int);
 
@@ -555,28 +546,12 @@ __GMP_DECLSPEC void mpz_mod (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_mul __gmpz_mul
 __GMP_DECLSPEC void mpz_mul (mpz_ptr, mpz_srcptr, mpz_srcptr);
 
-#define mpz_mul_2exp __gmpz_mul_2exp
-__GMP_DECLSPEC void mpz_mul_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
-
-#define mpz_mul_si __gmpz_mul_si
-__GMP_DECLSPEC void mpz_mul_si (mpz_ptr, mpz_srcptr, long int);
-
 #define mpz_mul_ui __gmpz_mul_ui
 __GMP_DECLSPEC void mpz_mul_ui (mpz_ptr, mpz_srcptr, unsigned long int);
 
 #define mpz_neg __gmpz_neg
 #if __GMP_INLINE_PROTOTYPES || defined (__GMP_FORCE_mpz_neg)
 __GMP_DECLSPEC void mpz_neg (mpz_ptr, mpz_srcptr);
-#endif
-
-#define mpz_out_raw __gmpz_out_raw
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_out_raw (FILE *, mpz_srcptr);
-#endif
-
-#define mpz_out_str __gmpz_out_str
-#ifdef _GMP_H_HAVE_FILE
-__GMP_DECLSPEC size_t mpz_out_str (FILE *, int, mpz_srcptr);
 #endif
 
 #define mpz_perfect_power_p __gmpz_perfect_power_p
@@ -1392,13 +1367,6 @@ mpn_neg (mp_ptr __gmp_rp, mp_srcptr __gmp_up, mp_size_t __gmp_n)
 #define mpz_cmp_ui(Z,UI) _mpz_cmp_ui (Z,UI)
 #define mpz_cmp_si(Z,UI) _mpz_cmp_si (Z,UI)
 #endif
-
-
-/* Using "&" rather than "&&" means these can come out branch-free.  Every
-   mpz_t has at least one limb allocated, so fetching the low limb is always
-   allowed.  */
-#define mpz_odd_p(z)   (((z)->_mp_size != 0) & __GMP_CAST (int, (z)->_mp_d[0]))
-#define mpz_even_p(z)  (! mpz_odd_p (z))
 
 
 /* Source-level compatibility with GMP 2 and earlier. */

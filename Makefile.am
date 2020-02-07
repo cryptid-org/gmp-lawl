@@ -144,17 +144,15 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/clear$U.lo mpz/clears$U.lo		\
   mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
   mpz/divexact$U.lo mpz/dive_ui$U.lo			\
-  mpz/oddfac_1$U.lo mpz/prodlimbs$U.lo	\
+  mpz/prodlimbs$U.lo	\
   mpz/fdiv_q_ui$U.lo mpz/fdiv_r_ui$U.lo 	\
   mpz/gcdext$U.lo mpz/get_str$U.lo mpz/get_ui$U.lo mpz/getlimbn$U.lo	\
   mpz/import$U.lo mpz/init$U.lo mpz/inits$U.lo		\
   mpz/invert$U.lo			\
-  mpz/iset$U.lo mpz/iset_d$U.lo mpz/iset_si$U.lo		\
-  mpz/iset_str$U.lo mpz/iset_ui$U.lo \
-  mpz/mod$U.lo mpz/mul$U.lo mpz/mul_2exp$U.lo	\
-  mpz/mul_si$U.lo mpz/mul_ui$U.lo					\
+  mpz/iset$U.lo mpz/iset_ui$U.lo \
+  mpz/mod$U.lo mpz/mul$U.lo mpz/mul_ui$U.lo					\
   mpz/n_pow_ui$U.lo mpz/neg$U.lo		\
-  mpz/out_raw$U.lo mpz/out_str$U.lo mpz/perfpow$U.lo mpz/perfsqr$U.lo	\
+  mpz/perfpow$U.lo mpz/perfsqr$U.lo	\
   mpz/popcount$U.lo mpz/pow_ui$U.lo mpz/powm$U.lo mpz/powm_sec$U.lo	\
   mpz/powm_ui$U.lo mpz/primorial_ui$U.lo				\
   mpz/realloc$U.lo mpz/realloc2$U.lo  \
