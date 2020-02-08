@@ -32,7 +32,7 @@ steps:
 
 - bash: |
     make
-    make install
+    sudo make install
   displayName: 'Make GMP'
 
 - bash: 'git clone https://github.com/cryptid-org/cryptid-native.git'
