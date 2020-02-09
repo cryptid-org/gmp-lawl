@@ -176,8 +176,7 @@ MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 
 libgmp_la_SOURCES = gmp-impl.h longlong.h				\
   assert.c compat.c errno.c extract-dbl.c memory.c		\
-  mp_bpl.c mp_clz_tab.c mp_dv_tab.c mp_minv_tab.c mp_get_fns.c mp_set_fns.c \
-  primesieve.c
+  mp_bpl.c mp_clz_tab.c mp_dv_tab.c mp_minv_tab.c mp_get_fns.c mp_set_fns.c
 EXTRA_libgmp_la_SOURCES = tal-notreent.c tal-reent.c
 libgmp_la_DEPENDENCIES = @TAL_OBJECT@		\
   $(MPZ_OBJECTS) \
