@@ -233,8 +233,8 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)" \
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 = $(MPZ_OBJECTS) $(MPN_OBJECTS)
 am_libgmp_la_OBJECTS = assert.lo compat.lo errno.lo extract-dbl.lo \
-	invalid.lo memory.lo mp_bpl.lo mp_clz_tab.lo mp_dv_tab.lo \
-	mp_minv_tab.lo mp_get_fns.lo mp_set_fns.lo primesieve.lo
+	memory.lo mp_bpl.lo mp_clz_tab.lo mp_dv_tab.lo mp_minv_tab.lo \
+	mp_get_fns.lo mp_set_fns.lo primesieve.lo
 libgmp_la_OBJECTS = $(am_libgmp_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -597,7 +597,7 @@ MPN_OBJECTS = mpn/fib_table$U.lo mpn/mp_bases$U.lo
 # -export-symbols, since the tune and speed programs, and perhaps some of
 # the test programs, want to access undocumented symbols.
 libgmp_la_SOURCES = gmp-impl.h longlong.h				\
-  assert.c compat.c errno.c extract-dbl.c invalid.c memory.c		\
+  assert.c compat.c errno.c extract-dbl.c memory.c		\
   mp_bpl.c mp_clz_tab.c mp_dv_tab.c mp_minv_tab.c mp_get_fns.c mp_set_fns.c \
   primesieve.c
 
