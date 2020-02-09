@@ -21911,7 +21911,7 @@ gmp_mpn_functions="$extra_functions					   \
   perfsqr perfpow							   \
   gcd_1 gcd gcdext_1 gcdext gcd_subdiv_step				   \
   gcdext_lehmer								   \
-  div_q tdiv_qr jacbase jacobi_2 jacobi get_d				   \
+  div_q tdiv_qr jacbase get_d				   \
   matrix22_mul matrix22_mul1_inverse_vector				   \
   hgcd_matrix hgcd2 hgcd_step hgcd_reduce hgcd hgcd_appr		   \
   hgcd2_jacobi hgcd_jacobi						   \

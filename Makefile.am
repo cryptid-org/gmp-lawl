@@ -252,17 +252,6 @@ gen-trialdivtab$(EXEEXT_FOR_BUILD): gen-trialdivtab$(U_FOR_BUILD).c bootstrap.c
 DISTCLEANFILES += gen-trialdivtab$(EXEEXT_FOR_BUILD)
 EXTRA_DIST += gen-trialdivtab.c
 
-
-mpn/jacobitab.h: gen-jacobitab$(EXEEXT_FOR_BUILD)
-	./gen-jacobitab >mpn/jacobitab.h || (rm -f mpn/jacobitab.h; exit 1)
-BUILT_SOURCES += mpn/jacobitab.h
-
-gen-jacobitab$(EXEEXT_FOR_BUILD): gen-jacobitab$(U_FOR_BUILD).c
-	$(CC_FOR_BUILD) `test -f 'gen-jacobitab$(U_FOR_BUILD).c' || echo '$(srcdir)/'`gen-jacobitab$(U_FOR_BUILD).c -o gen-jacobitab$(EXEEXT_FOR_BUILD)
-DISTCLEANFILES += gen-jacobitab$(EXEEXT_FOR_BUILD)
-EXTRA_DIST += gen-jacobitab.c
-
-
 mpn/perfsqr.h: gen-psqr$(EXEEXT_FOR_BUILD)
 	./gen-psqr $(GMP_LIMB_BITS) $(GMP_NAIL_BITS) >mpn/perfsqr.h || (rm -f mpn/perfsqr.h; exit 1)
 BUILT_SOURCES += mpn/perfsqr.h
