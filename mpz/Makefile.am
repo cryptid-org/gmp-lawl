@@ -35,7 +35,7 @@ noinst_LTLIBRARIES = libmpz.la
 libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   add.c add_ui.c cdiv_q.c cdiv_q_ui.c cfdiv_q_2exp.c \
   clear.c clears.c cmp.c cmp_si.c cmp_ui.c \
-  divexact.c dive_ui.c fdiv_q_ui.c \
+  divexact.c dive_ui.c export.c fdiv_q_ui.c \
   gcdext.c get_str.c get_ui.c getlimbn.c \
   import.c init.c inits.c \
   invert.c iset.c iset_ui.c \

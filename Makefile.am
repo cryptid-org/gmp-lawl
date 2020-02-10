@@ -143,6 +143,7 @@ MPZ_OBJECTS = mpz/add$U.lo mpz/add_ui$U.lo			\
   mpz/clear$U.lo mpz/clears$U.lo		\
   mpz/cmp$U.lo mpz/cmp_si$U.lo mpz/cmp_ui$U.lo		\
   mpz/divexact$U.lo mpz/dive_ui$U.lo			\
+  mpz/export$U.lo \
   mpz/fdiv_q_ui$U.lo mpz/fdiv_r_ui$U.lo 	\
   mpz/gcdext$U.lo mpz/get_str$U.lo mpz/get_ui$U.lo mpz/getlimbn$U.lo	\
   mpz/import$U.lo mpz/init$U.lo mpz/inits$U.lo		\

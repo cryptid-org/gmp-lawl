@@ -131,13 +131,13 @@ LTLIBRARIES = $(noinst_LTLIBRARIES)
 libmpz_la_LIBADD =
 am_libmpz_la_OBJECTS = add.lo add_ui.lo cdiv_q.lo cdiv_q_ui.lo \
 	cfdiv_q_2exp.lo clear.lo clears.lo cmp.lo cmp_si.lo cmp_ui.lo \
-	divexact.lo dive_ui.lo fdiv_q_ui.lo gcdext.lo get_str.lo \
-	get_ui.lo getlimbn.lo import.lo init.lo inits.lo invert.lo \
-	iset.lo iset_ui.lo mod.lo mul.lo mul_ui.lo n_pow_ui.lo neg.lo \
-	pow_ui.lo powm.lo powm_ui.lo realloc.lo realloc2.lo scan1.lo \
-	set.lo set_si.lo set_str.lo set_ui.lo sizeinbase.lo sub.lo \
-	sub_ui.lo tdiv_q_2exp.lo tdiv_qr.lo tdiv_r.lo tstbit.lo \
-	ui_pow_ui.lo
+	divexact.lo dive_ui.lo export.lo fdiv_q_ui.lo gcdext.lo \
+	get_str.lo get_ui.lo getlimbn.lo import.lo init.lo inits.lo \
+	invert.lo iset.lo iset_ui.lo mod.lo mul.lo mul_ui.lo \
+	n_pow_ui.lo neg.lo pow_ui.lo powm.lo powm_ui.lo realloc.lo \
+	realloc2.lo scan1.lo set.lo set_si.lo set_str.lo set_ui.lo \
+	sizeinbase.lo sub.lo sub_ui.lo tdiv_q_2exp.lo tdiv_qr.lo \
+	tdiv_r.lo tstbit.lo ui_pow_ui.lo
 libmpz_la_OBJECTS = $(am_libmpz_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -350,7 +350,7 @@ noinst_LTLIBRARIES = libmpz.la
 libmpz_la_SOURCES = aors.h aors_ui.h fits_s.h mul_i.h \
   add.c add_ui.c cdiv_q.c cdiv_q_ui.c cfdiv_q_2exp.c \
   clear.c clears.c cmp.c cmp_si.c cmp_ui.c \
-  divexact.c dive_ui.c fdiv_q_ui.c \
+  divexact.c dive_ui.c export.c fdiv_q_ui.c \
   gcdext.c get_str.c get_ui.c getlimbn.c \
   import.c init.c inits.c \
   invert.c iset.c iset_ui.c \

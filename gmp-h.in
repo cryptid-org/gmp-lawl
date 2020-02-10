@@ -490,6 +490,9 @@ __GMP_DECLSPEC void mpz_divexact (mpz_ptr, mpz_srcptr, mpz_srcptr);
 #define mpz_divexact_ui __gmpz_divexact_ui
 __GMP_DECLSPEC void mpz_divexact_ui (mpz_ptr, mpz_srcptr, unsigned long);
 
+#define mpz_export __gmpz_export
+__GMP_DECLSPEC void *mpz_export (void *, size_t *, int, size_t, int, size_t, mpz_srcptr);
+
 #define mpz_fdiv_q_2exp __gmpz_fdiv_q_2exp
 __GMP_DECLSPEC void mpz_fdiv_q_2exp (mpz_ptr, mpz_srcptr, mp_bitcnt_t);
 
